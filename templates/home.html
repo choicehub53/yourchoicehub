@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Welcome to Your Choice Hub</h2>
+  <p>Explore our curated collection of choices made just for you.</p>
+  <div class="gallery">
+    <img src="{{ url_for('static', filename='images/img1.jpg') }}" alt="Gallery 1">
+    <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="Gallery 2">
+    <img src="{{ url_for('static', filename='images/img3.jpg') }}" alt="Gallery 3">
+  </div>
+{% endblock %}
