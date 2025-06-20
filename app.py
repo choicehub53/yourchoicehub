@@ -1,23 +1,19 @@
-from flask import Flask, render_template, request
+
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template("index.html")
 
-@app.route('/about')
+@app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template("about.html")
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route("/contact")
 def contact():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        return f"Thank you, {name}. We will reach out to you shortly!"
-    return render_template('contact.html')
+    return render_template("contact.html")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
