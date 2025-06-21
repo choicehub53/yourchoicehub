@@ -1,19 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Choice Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <form action="https://formsubmit.co/choicehub53@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://yourchoicehub.com/thank-you.html">
+  <!-- Disable CAPTCHA -->
+  <input type="hidden" name="_captcha" value="false">
+  <!-- Redirect to Thank You page -->
+  <input type="hidden" name="_next" value="https://yourchoicehub.com/thank-you.html">
 
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+  <label>Email:</label><br>
+  <input type="email" name="email" required><br><br>
 
-    <label>Message:</label><br>
-    <textarea name="message" rows="5" required></textarea><br><br>
+  <label>Message:</label><br>
+  <textarea name="message" rows="5" required></textarea><br><br>
 
-    <button type="submit">Send</button>
+  <button type="submit">Send</button>
 </form>
-
     </div>
     
 <footer>
