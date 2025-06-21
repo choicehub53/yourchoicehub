@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us - Your Choice Hub</title>
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body>
+  <header>
+    <img src="static/images/logo.png" alt="Your Choice Hub Logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="content">
+    <h1>Contact Us</h1>
+    <form action="https://formsubmit.co/choicehub53@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thank-you.html">
+      <label>Name:</label><br />
+      <input type="text" name="name" required /><br /><br />
+      <label>Email:</label><br />
+      <input type="email" name="email" required /><br /><br />
+      <label>Message:</label><br />
+      <textarea name="message" rows="5" required></textarea><br /><br />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
