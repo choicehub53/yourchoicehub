@@ -1,7 +1,16 @@
-from flask import Flask, render_template, request, redirect
-import smtplib
+import Flask, render_template, request
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
+
+# Email configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'choicehub53@gmail.com'  # replace
+app.config['MAIL_PASSWORD'] = 'choicehub*5253'        # replace
+
+mail = Mail(app)
 
 @app.route('/')
 def home():
@@ -11,27 +20,22 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact')
 def contact():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        send_email(name, email, message)
-        return redirect('/thank-you')
     return render_template('contact.html')
 
-@app.route('/thank-you')
-def thank_you():
+@app.route('/send', methods=['POST'])
+def send():
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+    msg = Message(subject=f"New Contact from {name}",
+                  sender=email,
+                  recipients=["choicehub53@gmail.com"],
+                  body=message)
+    mail.send(msg)
     return render_template('thank-you.html')
-
-def send_email(name, email, message):
-    content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login("choicehub53@gmail.com", "choicehub*5253")  # change in deployment
-    server.sendmail("choicehub53@gmail.com", "choicehub53@gmail.com", content)
-    server.quit()
 
 if __name__ == '__main__':
     app.run(debug=True)
+
