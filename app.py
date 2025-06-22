@@ -26,7 +26,7 @@ def thank_you():
     return render_template('thank-you.html')
 
 def send_email(name, email, message):
-    content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+    content = f"Subject:New Contact Form Submission\n\nName: {name}\nEmail: {email}\nMessage: {message}"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login("choicehub53@gmail.com", "pacggzipvlzuoxyo")  # change in deployment
