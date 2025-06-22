@@ -30,7 +30,7 @@ def send_email(name, email, message):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login("choicehub53@gmail.com", "pacggzipvlzuoxyo")  # change in deployment
-    server.sendmail("choicehub53@gmail.com, "choicehub53@gmail.com", content)
+    server.sendmail("choicehub53@gmail.com", "choicehub53@gmail.com", content)
     server.quit()
 
 if __name__ == '__main__':
