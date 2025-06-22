@@ -29,8 +29,8 @@ def send_email(name, email, message):
     content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login("your_email@gmail.com", "your_password")  # change in deployment
-    server.sendmail("your_email@gmail.com", "choicehub53@gmail.com", content)
+    server.login("choicehub53@gmail.com", "choicehub*5253")  # change in deployment
+    server.sendmail("choicehub53@gmail.com", "choicehub53@gmail.com", content)
     server.quit()
 
 if __name__ == '__main__':
