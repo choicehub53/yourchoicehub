@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Us - Your Choice Hub</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
+<html>
+<head><title>About Us</title><link rel="stylesheet" href="/static/css/styles.css"></head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Choice Hub Logo" class="logo">
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </nav>
+  <img src="/static/images/logo.png" class="logo">
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
 </header>
-<main>
-    <h1>About Us</h1>
-    <p>We at Your Choice Hub strive to bring you the best quality fashion accessories and leather goods at unbeatable prices.</p>
+<main class="container">
+  <h1>About Us</h1>
+  <p>Your Choice Hub is an importer of fashion accessories and leather goods. We offer quality at unbeatable prices.</p>
 </main>
 <footer>
-    <p>📍 203, Rustom Bldg, Veer Nariman road, Fort, Mumbai 400001<br>
-       📞 7977292916 | ✉️ choicehub53@gmail.com</p>
+  <p>📍 203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001<br>
+  📞 7977292916 | ✉️ choicehub53@gmail.com</p>
 </footer>
 </body>
 </html>
