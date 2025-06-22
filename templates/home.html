@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Choice Hub - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<header>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Choice Hub Logo" class="logo">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+<main>
+    <h1>Welcome to Your Choice Hub</h1>
+    <p>Your ultimate destination for fashion accessories and leather bags. Discover the finest collection that blends elegance with utility.</p>
+    <img src="{{ url_for('static', filename='pics/fashion.jpg') }}" class="banner">
+    <img src="{{ url_for('static', filename='pics/leather.jpg') }}" class="banner">
+</main>
+<footer>
+    <p>📍 203, Rustom Bldg, Veer Nariman road, Fort, Mumbai 400001<br>
+       📞 7977292916 | ✉️ choicehub53@gmail.com</p>
+</footer>
+</body>
+</html>
