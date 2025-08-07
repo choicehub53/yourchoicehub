@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Card | Your Choice Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .card-container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .card-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .card-container img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Choice Hub Logo" class="logo">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/card">Business Card</a>
+    </nav>
+</header>
+
+<main class="card-container">
+    <h1>Our Business Card</h1>
+    <a href="{{ url_for('static', filename='images/visiting-card.jpg') }}" target="_blank">
+        <img src="{{ url_for('static', filename='images/visiting-card.jpg') }}" alt="Business Card">
+    </a>
+    <p>Click the card to view it in full size.</p>
+</main>
+
+<footer>
+    <p>📍 203, Rustom Bldg, Veer Nariman road, Fort, Mumbai 400001<br>
+       📞 7977292916 | ✉️ choicehub53@gmail.com</p>
+</footer>
+</body>
+</html>
 
