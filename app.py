@@ -21,6 +21,10 @@ def contact():
         return redirect('/thank-you')
     return render_template('contact.html')
 
+@app.route('/card')
+def card():
+    return render_template('card.html')
+
 @app.route('/thank-you')
 def thank_you():
     return render_template('thank-you.html')
