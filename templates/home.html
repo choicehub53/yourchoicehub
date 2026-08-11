@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Your Choice Hub | Fashion, Jewellery & Accessories</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Your Choice Hub | Fashion Jewellery & Accessories</title>
 
     <style>
         * {
@@ -19,178 +15,243 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #ffffff;
-            color: #222;
+            background: #fffaf5;
+            color: #333;
         }
 
         header {
+            background: linear-gradient(135deg, #fff, #fff0d9);
+            padding: 18px 6%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 6%;
-            background: white;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .logo {
-            width: 90px;
-            height: auto;
+            height: 65px;
+            width: auto;
         }
 
         nav {
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #222;
+            color: #333;
             font-weight: 600;
         }
 
         nav a:hover {
-            color: #19a9d8;
+            color: #d49a28;
+        }
+
+        .appointment-btn {
+            background: #d49a28;
+            color: white !important;
+            padding: 12px 20px;
+            border-radius: 25px;
         }
 
         .hero {
-            min-height: 70vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background:
-                linear-gradient(rgba(255,255,255,0.82),
-                                rgba(255,255,255,0.82)),
-                url("{{ url_for('static', filename='pics/fashion.jpg') }}")
-                center/cover;
+            justify-content: space-between;
+            padding: 60px 7%;
+            gap: 40px;
+            background: linear-gradient(135deg, #fff8ed, #ffe4c4, #fff);
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-text {
+            max-width: 560px;
         }
 
-        .hero h1 {
-            font-size: 48px;
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            color: #8b5e18;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            color: #333;
             margin-bottom: 18px;
-            letter-spacing: 1px;
         }
 
-        .hero h1 span {
-            color: #19a9d8;
-        }
-
-        .hero p {
-            font-size: 19px;
+        .hero-text p {
+            font-size: 18px;
             line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             color: #555;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 30px;
-            background: #19a9d8;
-            color: white;
-            text-decoration: none;
+            padding: 14px 25px;
             border-radius: 30px;
+            text-decoration: none;
             font-weight: bold;
-            margin: 5px;
         }
 
-        .btn:hover {
-            background: #128bb3;
+        .btn-gold {
+            background: #d49a28;
+            color: white;
         }
 
-        .section {
-            padding: 70px 7%;
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .hero-image {
+            width: 48%;
+            max-width: 650px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+
+        .appointment {
             text-align: center;
+            padding: 65px 20px;
+            background: white;
         }
 
-        .section h2 {
-            font-size: 32px;
-            margin-bottom: 12px;
+        .appointment h2 {
+            font-size: 35px;
+            color: #8b5e18;
+            margin-bottom: 15px;
         }
 
-        .section-subtitle {
-            color: #777;
+        .appointment p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .appointment-box {
+            max-width: 750px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff8e9, #fff);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .appointment-box strong {
+            color: #8b5e18;
+        }
+
+        .features {
+            padding: 60px 7%;
+            text-align: center;
+            background: #fff4e2;
+        }
+
+        .features h2 {
+            font-size: 35px;
+            color: #8b5e18;
             margin-bottom: 40px;
         }
 
-        .cards {
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
-        .card {
+        .feature {
             background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.10);
-            transition: transform 0.3s;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
         }
 
-        .card:hover {
-            transform: translateY(-7px);
+        .feature h3 {
+            margin-bottom: 12px;
+            color: #d49a28;
         }
 
-        .card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .card p {
-            color: #666;
+        .feature p {
             line-height: 1.6;
+            color: #666;
         }
 
         footer {
-            background: #111;
+            background: #3c2b18;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            line-height: 1.8;
+            padding: 35px 20px;
         }
 
-        footer span {
-            color: #19a9d8;
+        footer p {
+            margin: 8px 0;
         }
 
-        @media (max-width: 700px) {
+        .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            z-index: 2000;
+        }
+
+        @media (max-width: 800px) {
 
             header {
                 flex-direction: column;
-                gap: 12px;
+                gap: 15px;
             }
 
             nav {
-                gap: 15px;
+                gap: 12px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .hero h1 {
-                font-size: 34px;
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 45px 20px;
             }
 
-            .hero p {
-                font-size: 16px;
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -200,17 +261,16 @@
 
 <header>
 
-    <img
-        src="{{ url_for('static', filename='images/logo.png') }}"
-        alt="Your Choice Hub Logo"
-        class="logo"
-    >
+    <img src="{{ url_for('static', filename='images/logo.png') }}"
+         alt="Your Choice Hub"
+         class="logo">
 
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
-        <a href="/card">Digital Card</a>
+        <a href="/card">Business Card</a>
+        <a href="/appointment" class="appointment-btn">Book Appointment</a>
     </nav>
 
 </header>
@@ -218,76 +278,101 @@
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-text">
 
-        <h1>
-            Welcome to
-            <span>Your Choice Hub</span>
-        </h1>
+        <h1>Your Choice Hub</h1>
+
+        <h2>Trendy Jewellery • Fashion Accessories • Bags</h2>
 
         <p>
-            Your destination for premium fashion jewellery,
-            accessories and lifestyle products.
+            Discover elegant and contemporary pieces selected for
+            modern style and everyday sophistication.
         </p>
 
-        <a href="/card" class="btn">View Digital Card</a>
+        <p>
+            <strong>✨ Visits by appointment only.</strong>
+        </p>
 
-        <a href="/contact" class="btn">Contact Us</a>
+        <div class="hero-buttons">
+
+            <a href="/appointment" class="btn btn-gold">
+                Book an Appointment
+            </a>
+
+            <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub,%20I%20would%20like%20to%20ask%20about%20an%20appointment."
+               class="btn btn-whatsapp"
+               target="_blank">
+                WhatsApp Us
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <img src="{{ url_for('static', filename='pics/fashion.jpg') }}"
+         alt="Trendy Jewellery"
+         class="hero-image">
+
+</section>
+
+
+<section class="appointment">
+
+    <div class="appointment-box">
+
+        <h2>Visit Us by Appointment</h2>
+
+        <p>
+            We offer personalised assistance for our jewellery
+            and fashion accessories.
+        </p>
+
+        <p>
+            <strong>Appointments are required before visiting.</strong>
+        </p>
+
+        <br>
+
+        <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub,%20I%20would%20like%20to%20book%20an%20appointment."
+           class="btn btn-whatsapp"
+           target="_blank">
+            💬 Message Us on WhatsApp
+        </a>
 
     </div>
 
 </section>
 
 
-<section class="section">
+<section class="features">
 
     <h2>What We Offer</h2>
 
-    <p class="section-subtitle">
-        Discover our carefully selected collection
-    </p>
+    <div class="feature-grid">
 
-    <div class="cards">
-
-        <div class="card">
-
-            <img
-                src="{{ url_for('static', filename='pics/fashion.jpg') }}"
-                alt="Fashion Jewellery"
-            >
-
-            <div class="card-content">
-
-                <h3>Fashion Jewellery</h3>
-
-                <p>
-                    Stylish and elegant jewellery designed
-                    to complement every occasion.
-                </p>
-
-            </div>
-
+        <div class="feature">
+            <h3>✨ Trendy Jewellery</h3>
+            <p>
+                Contemporary jewellery pieces designed for
+                today's style-conscious customer.
+            </p>
         </div>
 
+        <div class="feature">
+            <h3>💎 Fashion Accessories</h3>
+            <p>
+                Stylish accessories carefully selected to
+                complement your look.
+            </p>
+        </div>
 
-        <div class="card">
-
-            <img
-                src="{{ url_for('static', filename='pics/leather.jpg') }}"
-                alt="Leather Accessories"
-            >
-
-            <div class="card-content">
-
-                <h3>Leather Accessories</h3>
-
-                <p>
-                    Premium bags and accessories combining
-                    style, quality and practicality.
-                </p>
-
-            </div>
-
+        <div class="feature">
+            <h3>👜 Premium Bags</h3>
+            <p>
+                Elegant and fashionable bags suitable for
+                everyday and special occasions.
+            </p>
         </div>
 
     </div>
@@ -297,15 +382,25 @@
 
 <footer>
 
-    <p>
-        © 2026 <span>Your Choice Hub</span>
-    </p>
+    <p><strong>Your Choice Hub</strong></p>
 
-    <p>
-        Mumbai, Maharashtra, India
-    </p>
+    <p>Fashion Jewellery • Accessories • Bags</p>
+
+    <p>Visit by Appointment Only</p>
+
+    <p>📱 7977292916</p>
+
+    <p>© Your Choice Hub. All Rights Reserved.</p>
 
 </footer>
+
+
+<a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub"
+   class="floating-whatsapp"
+   target="_blank"
+   title="WhatsApp Your Choice Hub">
+    💬
+</a>
 
 </body>
 </html>
