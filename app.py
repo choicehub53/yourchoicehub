@@ -22,13 +22,9 @@ def contact():
         email = request.form.get('email')
         message = request.form.get('message')
 
-        print("CONTACT FORM RECEIVED")
-        print("Name:", name)
-        print("Email:", email)
-        print("Message:", message)
+        send_email(name, email, message)
 
-        return "Contact form received successfully!"
-
+return redirect('/thank-you')
     return render_template('contact.html')
 
 @app.route('/card')
