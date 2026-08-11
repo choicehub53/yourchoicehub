@@ -18,11 +18,17 @@ def appointment():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        send_email(name, email, message)
-        return redirect('/thank-you')
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        print("CONTACT FORM RECEIVED")
+        print("Name:", name)
+        print("Email:", email)
+        print("Message:", message)
+
+        return "Contact form received successfully!"
+
     return render_template('contact.html')
 
 @app.route('/card')
