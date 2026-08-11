@@ -51,56 +51,105 @@
 
         .container {
             max-width: 850px;
-            margin: 70px auto;
+            margin: 50px auto;
             padding: 20px;
         }
 
         .appointment-card {
             background: white;
-            padding: 55px 40px;
+            padding: 45px 40px;
             border-radius: 25px;
-            text-align: center;
             box-shadow: 0 10px 40px rgba(0,0,0,0.12);
         }
 
         h1 {
+            text-align: center;
             color: #8b5e18;
-            font-size: 42px;
-            margin-bottom: 18px;
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 21px;
+            text-align: center;
+            font-size: 20px;
             color: #555;
             margin-bottom: 15px;
         }
 
         .notice {
-            display: inline-block;
+            display: block;
+            width: fit-content;
+            margin: 20px auto 30px;
             background: #fff1d6;
             color: #8b5e18;
             padding: 12px 22px;
             border-radius: 25px;
             font-weight: bold;
-            margin: 20px 0 30px;
         }
 
-        .appointment-card p {
-            font-size: 18px;
-            line-height: 1.7;
+        .intro {
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
             color: #555;
         }
 
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #d49a28;
+            box-shadow: 0 0 5px rgba(212,154,40,0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .row {
+            display: flex;
+            gap: 18px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
         .whatsapp {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 17px 32px;
+            width: 100%;
+            border: none;
+            margin-top: 10px;
+            padding: 17px 25px;
             background: #25D366;
             color: white;
-            text-decoration: none;
             border-radius: 35px;
             font-size: 18px;
             font-weight: bold;
+            cursor: pointer;
             box-shadow: 0 5px 15px rgba(37,211,102,0.3);
             transition: 0.2s ease;
         }
@@ -110,10 +159,11 @@
         }
 
         .phone {
+            text-align: center;
             margin-top: 22px;
-            font-size: 20px !important;
+            font-size: 20px;
             font-weight: bold;
-            color: #8b5e18 !important;
+            color: #8b5e18;
         }
 
         footer {
@@ -136,11 +186,16 @@
             }
 
             .appointment-card {
-                padding: 40px 22px;
+                padding: 35px 22px;
             }
 
             h1 {
-                font-size: 34px;
+                font-size: 32px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 0;
             }
         }
     </style>
@@ -177,24 +232,103 @@
             ✨ Visits by Appointment Only ✨
         </div>
 
-        <p>
-            We would be delighted to assist you personally
-            with our collection of trendy jewellery,
-            fashion accessories and premium bags.
+        <p class="intro">
+            Please provide your details below. We will receive your
+            appointment request directly on WhatsApp.
         </p>
 
-        <p>
-            Please message us on WhatsApp to enquire about
-            availability and schedule a convenient appointment.
-        </p>
 
-        <a class="whatsapp"
-           href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20let%20me%20know%20the%20available%20date%20and%20time."
-           target="_blank">
+        <form id="appointmentForm">
 
-            💬 Message Us on WhatsApp
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text"
+                       id="name"
+                       placeholder="Enter your full name"
+                       required>
+            </div>
 
-        </a>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number *</label>
+                <input type="tel"
+                       id="mobile"
+                       placeholder="Enter your mobile number"
+                       required>
+            </div>
+
+
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date"
+                           id="date"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Preferred Time *</label>
+                    <input type="time"
+                           id="time"
+                           required>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="service">Purpose of Visit *</label>
+
+                <select id="service" required>
+
+                    <option value="">
+                        Select an option
+                    </option>
+
+                    <option value="Jewellery">
+                        Jewellery
+                    </option>
+
+                    <option value="Fashion Accessories">
+                        Fashion Accessories
+                    </option>
+
+                    <option value="Premium Bags">
+                        Premium Bags
+                    </option>
+
+                    <option value="Jewellery Valuation">
+                        Jewellery Valuation
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Additional Message
+                </label>
+
+                <textarea id="message"
+                          placeholder="Any additional information you would like to share..."></textarea>
+
+            </div>
+
+
+            <button type="submit" class="whatsapp">
+                💬 Send Appointment Request on WhatsApp
+            </button>
+
+        </form>
+
 
         <p class="phone">
             📱 7977292916
@@ -209,5 +343,44 @@
     © Your Choice Hub. All Rights Reserved.
 </footer>
 
+
+<script>
+
+    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const mobile = document.getElementById("mobile").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const service = document.getElementById("service").value;
+        const message = document.getElementById("message").value;
+
+        const whatsappMessage =
+`Hello Your Choice Hub,
+
+I would like to book an appointment.
+
+Name: ${name}
+Mobile: ${mobile}
+Preferred Date: ${date}
+Preferred Time: ${time}
+Purpose of Visit: ${service}
+Additional Message: ${message || "None"}
+
+Thank you.`;
+
+        const whatsappURL =
+            "https://wa.me/917977292916?text=" +
+            encodeURIComponent(whatsappMessage);
+
+        window.open(whatsappURL, "_blank");
+
+    });
+
+</script>
+
 </body>
 </html>
+```
