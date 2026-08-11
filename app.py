@@ -34,12 +34,34 @@ def thank_you():
     return render_template('thank-you.html')
 
 def send_email(name, email, message):
-    content = f"Subject:New Contact Form Submission\n\nName: {name}\nEmail: {email}\nMessage: {message}"
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login("choicehub53@gmail.com", "pacggzipvlzuoxyo")  # change in deployment
-    server.sendmail("choicehub53@gmail.com", "choicehub53@gmail.com", content)
-    server.quit()
+    try:
+        content = f"""Subject: New Contact Form Submission
+
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+"""
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+
+        server.login("choicehub53@gmail.com", "gnqtdudynyhtcubc")
+
+        server.sendmail(
+            "choicehub53@gmail.com",
+            "choicehub53@gmail.com",
+            content
+        )
+
+        server.quit()
+
+        print("Email sent successfully!")
+
+    except Exception as e:
+        print("EMAIL ERROR:", e)
+        raise
 
 if __name__ == '__main__':
     app.run(debug=True)
