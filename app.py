@@ -11,6 +11,10 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route('/appointment')
+def appointment():
+    return render_template('appointment.html')
+    
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
