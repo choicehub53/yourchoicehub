@@ -20,23 +20,16 @@ def appointment():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    if request.method == "POST":
-        name = request.form.get("name", "")
-        email = request.form.get("email", "")
-        message = request.form.get("message", "")
+if request.method == "POST":
+name = request.form.get("name", "")
+email = request.form.get("email", "")
+message = request.form.get("message", "")
 
 
-        try:
-        resend.Emails.send({
-            "from": "Your Choice Hub <onboarding@resend.dev>",
-            "to": ["choicehub53@gmail.com"],
-            "subject": "New Enquiry - Your Choice Hub",
-            "html": "<h2>New Enquiry - Your Choice Hub</h2>"
-                    "<p><strong>Name:</strong> " + name + "</p>"
-                    "<p><strong>Email:</strong> " + email + "</p>"
-                    "<p><strong>Message:</strong></p>"
-                    "<p>" + message + "</p>"
-        })
+    print("NEW CONTACT ENQUIRY")
+    print("Name:", name)
+    print("Email:", email)
+    print("Message:", message)
 
         return redirect("/thank-you")
 
