@@ -8,15 +8,15 @@ resend.api_key = os.environ.get("RESEND_API_KEY")
 
 @app.route("/")
 def home():
-return render_template("home.html")
+    return render_template("home.html")
 
 @app.route("/about")
 def about():
-return render_template("about.html")
+    return render_template("about.html")
 
 @app.route("/appointment")
 def appointment():
-return render_template("appointment.html")
+    return render_template("appointment.html")
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
