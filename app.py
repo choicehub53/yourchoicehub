@@ -41,6 +41,12 @@ def thank_you():
 
 def send_email(name, email, message):
     try:
+        gmail_username = os.environ.get("GMAIL_USERNAME")
+        gmail_app_password = os.environ.get("GMAIL_APP_PASSWORD")
+
+        print("GMAIL USERNAME FOUND:", bool(gmail_username))
+        print("GMAIL APP PASSWORD FOUND:", bool(gmail_app_password))
+
         content = f"""Subject: New Contact Form Submission
 
 Name: {name}
@@ -53,20 +59,27 @@ Message:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
 
-        server.login("GMAIL_USERNAME", "GMAIL_APP_PASSWORD")
+        print("Connecting to Gmail...")
+
+        server.login(
+            gmail_username,
+            gmail_app_password
+        )
+
+        print("Gmail login successful")
 
         server.sendmail(
-            "choicehub53@gmail.com",
-            "choicehub53@gmail.com",
+            gmail_username,
+            gmail_username,
             content
         )
 
+        print("EMAIL SENT SUCCESSFULLY")
+
         server.quit()
 
-        print("Email sent successfully!")
-
     except Exception as e:
-        print("EMAIL ERROR:", e)
+        print("EMAIL ERROR:", repr(e))
         raise
 
 if __name__ == '__main__':
