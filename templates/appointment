@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book an Appointment | Your Choice Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff8ed, #ffe6c7);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: white;
+            padding: 18px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            height: 65px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #d49a28;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        .appointment-card {
+            background: white;
+            padding: 55px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            color: #8b5e18;
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .notice {
+            display: inline-block;
+            background: #fff1d6;
+            color: #8b5e18;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0 30px;
+        }
+
+        .appointment-card p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .whatsapp {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 17px 32px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 35px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        .phone {
+            margin-top: 22px;
+            font-size: 20px !important;
+            font-weight: bold;
+            color: #8b5e18 !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .appointment-card {
+                padding: 40px 22px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <img src="{{ url_for('static', filename='images/logo.png') }}"
+         alt="Your Choice Hub"
+         class="logo">
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <div class="appointment-card">
+
+        <h1>Book an Appointment</h1>
+
+        <div class="subtitle">
+            Your Choice Hub
+        </div>
+
+        <div class="notice">
+            ✨ Visits by Appointment Only ✨
+        </div>
+
+        <p>
+            We would be delighted to assist you personally
+            with our collection of trendy jewellery,
+            fashion accessories and premium bags.
+        </p>
+
+        <p>
+            Please message us on WhatsApp to enquire about
+            availability and schedule a convenient appointment.
+        </p>
+
+        <a class="whatsapp"
+           href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub,%20I%20would%20like%20to%20book%20an%20appointment."
+           target="_blank">
+
+            💬 Message Us on WhatsApp
+
+        </a>
+
+        <p class="phone">
+            📱 7977292916
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © Your Choice Hub. All Rights Reserved.
+</footer>
+
+</body>
+</html>
