@@ -53,7 +53,7 @@ Message:
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
 
-        server.login("choicehub53@gmail.com", "gnqtdudynyhtcubc")
+        server.login("GMAIL_USERNAME", "GMAIL_APP_PASSWORD")
 
         server.sendmail(
             "choicehub53@gmail.com",
