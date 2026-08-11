@@ -4,8 +4,6 @@ import resend
 
 app = Flask(**name**)
 
-# Resend API key
-
 resend.api_key = os.environ.get("RESEND_API_KEY")
 
 @app.route('/')
@@ -32,17 +30,11 @@ if request.method == 'POST':
 
     try:
         send_email(name, email, message)
-
         return redirect('/thank-you')
 
     except Exception as e:
         print("CONTACT EMAIL ERROR:", e)
-
-        return """
-        <h2>Unable to send your enquiry</h2>
-        <p>Please try again later or contact us on WhatsApp.</p>
-        <p>WhatsApp: 7977292916</p>
-        """
+        return "Unable to send enquiry. Please try again."
 
 
 return render_template('contact.html')
@@ -61,59 +53,25 @@ def send_email(name, email, message):
 ```
 params = {
     "from": "Your Choice Hub <onboarding@resend.dev>",
-
-    "to": [
-        "choicehub53@gmail.com"
-    ],
-
+    "to": ["choicehub53@gmail.com"],
     "subject": "New Enquiry - Your Choice Hub",
-
     "html": f"""
-    <!DOCTYPE html>
+    <h2>New Enquiry - Your Choice Hub</h2>
 
-    <html>
-    <body style="font-family: Arial, sans-serif;">
+    <p><strong>Name:</strong> {name}</p>
 
-        <h2 style="color:#0f3d36;">
-            New Enquiry - Your Choice Hub
-        </h2>
+    <p><strong>Email:</strong> {email}</p>
 
-        <hr>
+    <p><strong>Message:</strong></p>
 
-        <p>
-            <strong>Name:</strong>
-            {name}
-        </p>
+    <p>{message}</p>
 
-        <p>
-            <strong>Email:</strong>
-            {email}
-        </p>
+    <hr>
 
-        <p>
-            <strong>Message:</strong>
-        </p>
-
-        <div style="
-            background:#f8f5ec;
-            padding:20px;
-            border-radius:10px;
-            line-height:1.6;
-        ">
-            {message}
-        </div>
-
-        <br>
-
-        <hr>
-
-        <p style="color:#666;">
-            This enquiry was submitted through the
-            Your Choice Hub website.
-        </p>
-
-    </body>
-    </html>
+    <p>
+    This enquiry was submitted through
+    the Your Choice Hub website.
+    </p>
     """
 }
 
