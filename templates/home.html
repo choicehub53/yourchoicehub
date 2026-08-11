@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<title>Your Choice Hub | Jewellery & Diamond Valuation</title>
+<title>Your Choice Hub | Exclusive Jewellery & Luxurious Watches</title>
 
 <style>
     * {
@@ -110,7 +110,7 @@
     }
 
     .hero-text h1 {
-        font-size: 55px;
+        font-size: 53px;
         line-height: 1.08;
         color: var(--emerald);
         margin-bottom: 18px;
@@ -180,8 +180,8 @@
         box-shadow: 0 15px 45px rgba(15,61,54,0.18);
     }
 
-    /* VALUATION SECTION */
-    .valuation {
+    /* SERVICES */
+    .services {
         text-align: center;
         padding: 80px 7%;
         background: white;
@@ -195,6 +195,7 @@
         margin-bottom: 10px;
     }
 
+    .services h2,
     .valuation h2 {
         font-size: 38px;
         color: var(--emerald);
@@ -205,12 +206,57 @@
         width: 70px;
         height: 3px;
         background: var(--gold);
-        margin: 0 auto 20px;
+        margin: 0 auto 40px;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .service-card {
+        background: var(--ivory);
+        padding: 40px 27px;
+        border-radius: 20px;
+        box-shadow: 0 7px 25px rgba(15,61,54,0.08);
+        border: 1px solid var(--gold-light);
+        transition: 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(15,61,54,0.14);
+    }
+
+    .service-icon {
+        font-size: 45px;
+        margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+        color: var(--emerald);
+        margin-bottom: 13px;
+        font-size: 22px;
+    }
+
+    .service-card p {
+        line-height: 1.65;
+        color: var(--text);
+    }
+
+    /* VALUATION */
+    .valuation {
+        text-align: center;
+        padding: 80px 7%;
+        background: var(--emerald-light);
     }
 
     .valuation-intro {
         max-width: 760px;
-        margin: 0 auto 45px;
+        margin: 0 auto 40px;
         font-size: 18px;
         line-height: 1.75;
         color: var(--text);
@@ -225,7 +271,7 @@
     }
 
     .valuation-card {
-        background: var(--ivory);
+        background: white;
         padding: 38px 27px;
         border-radius: 20px;
         box-shadow: 0 7px 25px rgba(15,61,54,0.08);
@@ -234,8 +280,7 @@
     }
 
     .valuation-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 30px rgba(15,61,54,0.14);
+        transform: translateY(-5px);
     }
 
     .valuation-card .icon {
@@ -449,15 +494,18 @@
             padding: 13px 20px;
         }
 
+        .services,
         .valuation {
             padding: 60px 20px;
         }
 
+        .services h2,
         .valuation h2,
         .why-us h2 {
             font-size: 30px;
         }
 
+        .service-grid,
         .valuation-grid,
         .why-grid {
             grid-template-columns: 1fr;
@@ -498,27 +546,28 @@
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 
 ```
 <div class="hero-text">
 
-    <span class="hero-label">PROFESSIONAL VALUATION SERVICES</span>
+    <span class="hero-label">EXCLUSIVE JEWELLERY & LUXURIOUS WATCHES</span>
 
     <h1>Jewellery & Diamond Valuation</h1>
 
-    <h2>Professional • Confidential • Customer Focused</h2>
+    <h2>Exclusive Jewellery • Diamond Valuation • Luxurious Watches</h2>
 
     <p>
-        Get your jewellery and diamonds professionally assessed
-        with careful attention to weight, purity, quality and
-        relevant market factors.
+        Discover carefully selected jewellery and luxurious watches,
+        while receiving professional assistance for jewellery and
+        diamond valuation.
     </p>
 
     <p>
-        Whether you require a valuation for personal records,
-        purchase decisions, insurance or other purposes, we are
-        here to assist you.
+        We focus on quality, careful assessment, confidentiality
+        and personalised service for every customer.
     </p>
 
     <p>
@@ -531,7 +580,7 @@
             Book an Appointment
         </a>
 
-        <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20enquire%20about%20jewellery%20and%20diamond%20valuation."
+        <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20enquire%20about%20jewellery%2C%20diamonds%20or%20watches."
            class="btn btn-whatsapp"
            target="_blank"
            rel="noopener">
@@ -543,18 +592,68 @@
 </div>
 
 <img src="{{ url_for('static', filename='pics/fashion.jpg') }}"
-     alt="Jewellery and Diamond Valuation"
+     alt="Exclusive Jewellery and Luxurious Watches"
      class="hero-image">
 ```
 
 </section>
 
+<!-- PRODUCTS / SERVICES -->
+
+<section class="services">
+
+```
+<div class="section-label">YOUR CHOICE HUB</div>
+
+<h2>Exclusive Collection & Services</h2>
+
+<div class="gold-line"></div>
+
+<div class="service-grid">
+
+    <div class="service-card">
+        <div class="service-icon">💎</div>
+        <h3>Exclusive Jewellery</h3>
+        <p>
+            Discover elegant and distinctive jewellery pieces
+            selected for customers who appreciate quality,
+            beauty and timeless style.
+        </p>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">💠</div>
+        <h3>Diamond Valuation</h3>
+        <p>
+            Professional valuation assistance considering
+            important diamond characteristics such as carat,
+            colour, clarity and cut.
+        </p>
+    </div>
+
+    <div class="service-card">
+        <div class="service-icon">⌚</div>
+        <h3>Luxurious Watches</h3>
+        <p>
+            Explore a selection of luxurious watches chosen
+            for customers seeking elegance, sophistication
+            and timeless appeal.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- VALUATION -->
+
 <section class="valuation">
 
 ```
-<div class="section-label">WHAT WE DO</div>
+<div class="section-label">PROFESSIONAL VALUATION</div>
 
-<h2>Our Valuation Services</h2>
+<h2>Jewellery & Diamond Valuation</h2>
 
 <div class="gold-line"></div>
 
@@ -601,6 +700,8 @@
 
 </section>
 
+<!-- WHY CHOOSE US -->
+
 <section class="why-us">
 
 ```
@@ -640,20 +741,23 @@
 
 </section>
 
+<!-- ENQUIRY -->
+
 <section class="enquiry">
 
 ```
 <div class="enquiry-box">
 
-    <h2>Need Your Jewellery Valued?</h2>
+    <h2>Looking for Jewellery or a Valuation?</h2>
 
     <p>
         Have a diamond, gold item or jewellery piece that you
-        would like to have assessed? Contact us to discuss your
-        requirements and arrange an appointment.
+        would like to have assessed? Looking for an exclusive
+        jewellery piece or luxurious watch? Contact us to
+        discuss your requirements and arrange an appointment.
     </p>
 
-    <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20enquire%20about%20jewellery%20valuation."
+    <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20make%20an%20enquiry."
        class="btn btn-whatsapp"
        target="_blank"
        rel="noopener">
@@ -665,28 +769,45 @@
 
 </section>
 
+<!-- CONTACT -->
+
 <section class="contact-info">
 
 ```
 <h2>Visit Your Choice Hub</h2>
 
-<p>📍 203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001</p>
+<p>📍 <strong>Mumbai</strong><br>
+203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001</p>
 
-<p>📞 7977292916</p>
+<br>
 
-<p>✉️ choicehub53@gmail.com</p>
+<p>📍 <strong>Pune</strong><br>
+U73, Clover Hills Plaza Shopping Mall,<br>
+NIBM, Pune, 411048</p>
+
+<br>
+
+<p>📞 <strong>7977292916</strong></p>
+
+<p>✉️ <strong>mail@yourchoicehub.com</strong></p>
+
+<p>✉️ <strong>choicehub53@gmail.com</strong></p>
+
+<br>
 
 <p><strong>Visits by appointment only.</strong></p>
 ```
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
 ```
 <p><strong>Your Choice Hub</strong></p>
 
-<p>Jewellery & Diamond Valuation</p>
+<p>Exclusive Jewellery • Diamond Valuation • Luxurious Watches</p>
 
 <p>Professional • Confidential • Customer Focused</p>
 
@@ -694,6 +815,8 @@
 ```
 
 </footer>
+
+<!-- FLOATING WHATSAPP -->
 
 <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub"
 class="floating-whatsapp"
