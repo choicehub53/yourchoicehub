@@ -45,8 +45,8 @@ def thank_you():
 
 
 def send_email(name, email, message):
-    gmail_username = os.environ.get('GMAIL_USERNAME')
-    gmail_app_password = os.environ.get('GMAIL_APP_PASSWORD')
+    gmail_username = os.environ.get("GMAIL_USERNAME")
+    gmail_app_password = os.environ.get("GMAIL_APP_PASSWORD")
 
     content = f"""Subject: New Contact Form Submission
 
@@ -57,21 +57,27 @@ Message:
 {message}
 """
 
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
+    server = None
 
-    server.login(
-        gmail_username,
-        gmail_app_password
-    )
+    try:
+        server = smtplib.SMTP(
+            'smtp.gmail.com',
+            587,
+            timeout=10
+        )
 
-    server.sendmail(
-        gmail_username,
-        gmail_username,
-        content
-    )
+        server.starttls()
+        server.login(gmail_username, gmail_app_password)
 
-    server.quit()
+        server.sendmail(
+            gmail_username,
+            gmail_username,
+            content
+        )
+
+    finally:
+        if server:
+            server.quit()
 
 
 if __name__ == '__main__':
