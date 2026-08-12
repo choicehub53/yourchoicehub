@@ -1,602 +1,433 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Book Appointment | Your Choice Hub</title>
 
-<title>Book Appointment | Your Choice Hub</title>
+    <style>
 
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    :root {
-        --emerald: #0f3d36;
-        --emerald-dark: #092c27;
-        --emerald-light: #e8f1ee;
-        --gold: #c6a15b;
-        --gold-light: #ead8ad;
-        --ivory: #fbf8f1;
-        --white: #ffffff;
-        --text: #555555;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: var(--ivory);
-        color: #242424;
-    }
-
-    /* HEADER */
-
-    header {
-        background: white;
-        padding: 15px 6%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 3px 18px rgba(0,0,0,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo {
-        height: 65px;
-        width: auto;
-    }
-
-    nav {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: var(--emerald);
-        font-weight: 600;
-    }
-
-    nav a:hover {
-        color: var(--gold);
-    }
-
-    .appointment-btn {
-        background: var(--emerald);
-        color: white !important;
-        padding: 12px 21px;
-        border-radius: 25px;
-    }
-
-    /* HERO */
-
-    .page-hero {
-        text-align: center;
-        padding: 70px 20px;
-        background:
-            radial-gradient(circle at 80% 20%, rgba(198,161,91,0.18), transparent 35%),
-            linear-gradient(135deg, #f8f5ec, #e8f1ee, #fff);
-    }
-
-    .page-label {
-        display: inline-block;
-        background: var(--emerald);
-        color: white;
-        padding: 9px 20px;
-        border-radius: 30px;
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        margin-bottom: 18px;
-    }
-
-    .page-hero h1 {
-        font-size: 46px;
-        color: var(--emerald);
-        margin-bottom: 15px;
-    }
-
-    .page-hero p {
-        max-width: 720px;
-        margin: auto;
-        font-size: 18px;
-        line-height: 1.7;
-        color: var(--text);
-    }
-
-    /* FORM */
-
-    .appointment-section {
-        padding: 70px 20px;
-    }
-
-    .form-box {
-        max-width: 760px;
-        margin: auto;
-        background: white;
-        padding: 45px;
-        border-radius: 25px;
-        border: 1px solid var(--gold-light);
-        box-shadow: 0 10px 35px rgba(15,61,54,0.10);
-    }
-
-    .form-box h2 {
-        text-align: center;
-        color: var(--emerald);
-        font-size: 30px;
-        margin-bottom: 10px;
-    }
-
-    .form-intro {
-        text-align: center;
-        color: var(--text);
-        line-height: 1.6;
-        margin-bottom: 32px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--emerald);
-        font-weight: bold;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100%;
-        padding: 14px 15px;
-        border: 1px solid #d8d8d8;
-        border-radius: 10px;
-        font-size: 16px;
-        font-family: Arial, sans-serif;
-        background: #fff;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-        outline: none;
-        border-color: var(--gold);
-        box-shadow: 0 0 0 2px rgba(198,161,91,0.15);
-    }
-
-    textarea {
-        min-height: 120px;
-        resize: vertical;
-    }
-
-    .submit-btn {
-        width: 100%;
-        border: none;
-        padding: 16px;
-        border-radius: 30px;
-        background: var(--gold);
-        color: white;
-        font-size: 17px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .submit-btn:hover {
-        background: #a98646;
-    }
-
-    .note {
-        text-align: center;
-        margin-top: 18px;
-        font-size: 14px;
-        color: #777;
-    }
-
-    /* CONTACT */
-
-    .contact-info {
-        padding: 60px 20px;
-        text-align: center;
-        background: var(--emerald-light);
-    }
-
-    .contact-info h2 {
-        color: var(--emerald);
-        margin-bottom: 18px;
-        font-size: 32px;
-    }
-
-    .contact-info p {
-        margin: 8px 0;
-        color: var(--text);
-        font-size: 17px;
-        line-height: 1.5;
-    }
-
-    /* FOOTER */
-
-    footer {
-        background: var(--emerald-dark);
-        color: white;
-        text-align: center;
-        padding: 38px 20px;
-    }
-
-    footer p {
-        margin: 8px 0;
-    }
-
-    footer strong {
-        color: var(--gold-light);
-    }
-
-    /* WHATSAPP */
-
-    .floating-whatsapp {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        background: #25D366;
-        color: white;
-        width: 62px;
-        height: 62px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 29px;
-        text-decoration: none;
-        box-shadow: 0 6px 22px rgba(0,0,0,0.25);
-        z-index: 2000;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
 
         header {
-            flex-direction: column;
-            gap: 14px;
-            padding: 13px 4%;
+            background: #111;
+            padding: 12px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
         }
 
         .logo {
-            height: 58px;
+            height: 65px;
+            width: auto;
         }
 
         nav {
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            gap: 25px;
+            align-items: center;
         }
 
         nav a {
-            font-size: 14px;
+            color: #f1dfb8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .appointment-btn {
-            padding: 10px 15px;
+        nav a:hover {
+            color: #d8b36a;
         }
 
-        .page-hero {
-            padding: 55px 20px;
+        .nav-button {
+            background: #d8b36a;
+            color: #111 !important;
+            padding: 11px 19px;
+            border-radius: 25px;
         }
 
-        .page-hero h1 {
-            font-size: 38px;
+        .page-header {
+            background: #171614;
+            text-align: center;
+            color: white;
+            padding: 65px 20px;
         }
 
-        .page-hero p {
+        .page-header h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #e4c477;
+            font-size: 47px;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #d5d0c6;
             font-size: 16px;
         }
 
         .appointment-section {
-            padding: 45px 15px;
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 20px;
         }
 
-        .form-box {
-            padding: 30px 20px;
+        .appointment-box {
+            background: white;
+            padding: 38px;
+            border-radius: 8px;
+            border: 1px solid #e2d5bd;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
         }
 
-        .form-box h2 {
-            font-size: 27px;
+        .appointment-box h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #9b7129;
+            font-size: 31px;
+            margin-bottom: 10px;
         }
 
-        .floating-whatsapp {
-            width: 58px;
-            height: 58px;
-            right: 15px;
-            bottom: 15px;
+        .appointment-box > p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
-    }
-</style>
 
+        .appointment-notice {
+            background: #f3ead8;
+            border-left: 4px solid #d8b36a;
+            padding: 15px;
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d6c9b2;
+            border-radius: 5px;
+            margin-bottom: 19px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .whatsapp-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        footer {
+            background: #0e0e0d;
+            color: #aaa;
+            text-align: center;
+            padding: 27px 20px;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d8b36a;
+            font-size: 16px;
+        }
+
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                height: 58px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .appointment-box {
+                padding: 25px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 38px;
+            }
+
+        }
+
+    </style>
 
 </head>
+
 
 <body>
 
 <header>
 
+    <a href="/" class="logo-link">
 
-<img src="{{ url_for('static', filename='images/logo.png') }}"
-     alt="Your Choice Hub"
-     class="logo">
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Your Choice Hub"
+            class="logo"
+        >
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-    <a href="/appointment" class="appointment-btn">Book Appointment</a>
-</nav>
+    </a>
 
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/about">About</a>
+
+        <a href="/contact">Contact</a>
+
+        <a href="/appointment" class="nav-button">
+            Book Appointment
+        </a>
+
+    </nav>
 
 </header>
 
-<!-- PAGE HERO -->
 
-<section class="page-hero">
+<section class="page-header">
 
+    <h1>Book Your Private Appointment</h1>
 
-<span class="page-label">YOUR CHOICE HUB</span>
-
-<h1>Book an Appointment</h1>
-
-<p>
-    Schedule a personal appointment for jewellery valuation,
-    premium jewellery or luxurious watches.
-</p>
-
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
 </section>
 
-<!-- APPOINTMENT FORM -->
 
 <section class="appointment-section">
 
-    
-<div class="form-box">
+    <div class="appointment-box">
 
-    <h2>Appointment Request</h2>
+        <h2>Plan Your Visit</h2>
 
-    <p class="form-intro">
-        Please provide your details and select the service
-        you are interested in. We will contact you to confirm
-        your appointment.
-    </p>
+        <p>
+            Tell us what you would like assistance with and
+            contact us through WhatsApp to arrange your visit.
+        </p>
 
-<form onsubmit="sendToWhatsApp(event)">
 
+        <div class="appointment-notice">
 
-<div class="form-group">
+            <strong>Visits by Appointment Only.</strong><br>
 
-    <label for="name">Full Name</label>
+            We recommend scheduling your visit in advance
+            so that we can provide you with personalised attention.
 
-    <input
-        type="text"
-        id="name"
-        placeholder="Enter your full name"
-        required>
+        </div>
 
-</div>
 
+        <form
+            onsubmit="sendWhatsApp(event)"
+        >
 
-<div class="form-group">
+            <label for="name">
+                Name
+            </label>
 
-    <label for="phone">Mobile Number</label>
+            <input
+                type="text"
+                id="name"
+                required
+                placeholder="Your Name"
+            >
 
-    <input
-        type="tel"
-        id="phone"
-        placeholder="Enter your mobile number"
-        required>
 
-</div>
+            <label for="phone">
+                Phone Number
+            </label>
 
+            <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="Your Phone Number"
+            >
 
-<div class="form-group">
 
-    <label for="email">Email Address</label>
+            <label for="email">
+                Email
+            </label>
 
-    <input
-        type="email"
-        id="email"
-        placeholder="Enter your email address">
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+            >
 
-</div>
 
+            <label for="service">
+                Service
+            </label>
 
-<div class="form-group">
+            <select id="service" required>
 
-    <label for="service">What are you interested in?</label>
+                <option value="">
+                    Select a Service
+                </option>
 
-    <select id="service" required>
+                <option value="Gold Valuation">
+                    Gold Valuation
+                </option>
 
-        <option value="">Select a service</option>
+                <option value="Exclusive Jewellery">
+                    Exclusive Jewellery
+                </option>
 
-        <option value="Jewellery Valuation">
-            💍 Jewellery Valuation
-        </option>
+                <option value="Luxury Watches">
+                    Luxury Watches
+                </option>
 
-        <option value="Premium Jewellery">
-            ✨ Premium Jewellery
-        </option>
+            </select>
 
-        <option value="Luxurious Watches">
-            ⌚ Luxurious Watches
-        </option>
 
-    </select>
+            <label for="date">
+                Preferred Date
+            </label>
 
-</div>
+            <input
+                type="date"
+                id="date"
+                required
+            >
 
 
-<div class="form-group">
+            <label for="time">
+                Preferred Time
+            </label>
 
-    <label for="location">Preferred Location</label>
+            <input
+                type="time"
+                id="time"
+                required
+            >
 
-    <select id="location" required>
 
-        <option value="">Select location</option>
+            <label for="message">
+                Message
+            </label>
 
-        <option value="Mumbai">Mumbai</option>
+            <textarea
+                id="message"
+                rows="4"
+                placeholder="Anything you would like us to know?"
+            ></textarea>
 
-        <option value="Pune">Pune</option>
 
-    </select>
+            <button
+                type="submit"
+                class="whatsapp-button"
+            >
+                Send Appointment Request on WhatsApp
+            </button>
 
-</div>
+        </form>
 
-
-<div class="form-group">
-
-    <label for="date">Preferred Date</label>
-
-    <input
-        type="date"
-        id="date"
-        required>
-
-</div>
-
-
-<div class="form-group">
-
-    <label for="time">Preferred Time</label>
-
-    <input
-        type="time"
-        id="time"
-        required>
-
-</div>
-
-
-<div class="form-group">
-
-    <label for="message">Additional Information</label>
-
-    <textarea
-        id="message"
-        placeholder="Anything else you would like us to know?"></textarea>
-
-</div>
-
-
-<button type="submit" class="submit-btn">
-    Request Appointment on WhatsApp
-</button>
-
-
-</form>
-
-<script>
-
-function sendToWhatsApp(event) {
-
-    event.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const service = document.getElementById("service").value;
-    const location = document.getElementById("location").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
-    const message = document.getElementById("message").value;
-
-    const whatsappMessage =
-        "Hello Your Choice Hub,%0A%0A" +
-        "*New Appointment Request*%0A%0A" +
-        "*Name:* " + encodeURIComponent(name) + "%0A" +
-        "*Mobile:* " + encodeURIComponent(phone) + "%0A" +
-        "*Email:* " + encodeURIComponent(email || "Not provided") + "%0A" +
-        "*Service:* " + encodeURIComponent(service) + "%0A" +
-        "*Location:* " + encodeURIComponent(location) + "%0A" +
-        "*Preferred Date:* " + encodeURIComponent(date) + "%0A" +
-        "*Preferred Time:* " + encodeURIComponent(time) + "%0A" +
-        "*Additional Information:* " + encodeURIComponent(message || "None");
-
-    const whatsappURL =
-        "https://wa.me/917977292916?text=" + whatsappMessage;
-
-    window.open(whatsappURL, "_blank");
-
-}
-
-</script>
-
-<!-- CONTACT -->
-
-<section class="contact-info">
-
-
-<h2>Contact Your Choice Hub</h2>
-
-<p>
-    📍 <strong>Mumbai</strong><br>
-    203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001
-</p>
-
-<br>
-
-<p>
-    📍 <strong>Pune</strong><br>
-    U73, Clover Hills Plaza Shopping Mall,<br>
-    NIBM, Pune, 411048
-</p>
-
-<br>
-
-<p>📞 <strong>7977292916</strong></p>
-
-<p>✉️ mail@yourchoicehub.com</p>
-
-<p>✉️ choicehub53@gmail.com</p>
-
-<p><strong>Visits by appointment only.</strong></p>
-
+    </div>
 
 </section>
 
-<!-- FOOTER -->
 
 <footer>
 
+    <p>
+        <strong>Your Choice Hub</strong>
+    </p>
 
-<p><strong>Your Choice Hub</strong></p>
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
-<p>
-    Exclusive Jewellery • Jewellery Valuation • Luxurious Watches
-</p>
-
-<p>
-    Professional • Confidential • Customer Focused
-</p>
-
-<p>
-    © Your Choice Hub. All Rights Reserved.
-</p>
-
+    <p>
+        Visits by Appointment Only
+    </p>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
 
-<a href="https://wa.me/917977292916"
-class="floating-whatsapp"
-target="_blank"
-rel="noopener noreferrer"
-title="WhatsApp Your Choice Hub">
-💬 </a>
+<script>
+
+function sendWhatsApp(event) {
+
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var service = document.getElementById("service").value;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+    var message = document.getElementById("message").value;
+
+    var text =
+        "New Appointment Request - Your Choice Hub%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A" +
+        "Service: " + encodeURIComponent(service) + "%0A" +
+        "Preferred Date: " + encodeURIComponent(date) + "%0A" +
+        "Preferred Time: " + encodeURIComponent(time) + "%0A" +
+        "Message: " + encodeURIComponent(message) + "%0A%0A" +
+        "Thank you.";
+
+    window.open(
+        "https://wa.me/917977292916?text=" + text,
+        "_blank"
+    );
+}
+
+</script>
 
 
 </body>
