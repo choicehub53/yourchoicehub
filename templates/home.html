@@ -1,829 +1,689 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>Your Choice Hub | Exclusive Jewellery & Luxurious Watches</title>
-
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    :root {
-        --emerald: #0f3d36;
-        --emerald-dark: #092c27;
-        --emerald-light: #e8f1ee;
-        --gold: #c6a15b;
-        --gold-light: #ead8ad;
-        --ivory: #fbf8f1;
-        --white: #ffffff;
-        --charcoal: #242424;
-        --text: #555555;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: var(--ivory);
-        color: var(--charcoal);
-    }
-
-    /* HEADER */
-    header {
-        background: rgba(255,255,255,0.98);
-        padding: 15px 6%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 3px 18px rgba(0,0,0,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo {
-        height: 65px;
-        width: auto;
-    }
-
-    nav {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: var(--emerald);
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--gold);
-    }
-
-    .appointment-btn {
-        background: var(--emerald);
-        color: white !important;
-        padding: 12px 21px;
-        border-radius: 25px;
-        box-shadow: 0 5px 15px rgba(15,61,54,0.2);
-    }
-
-    .appointment-btn:hover {
-        background: var(--gold);
-    }
-
-    /* HERO */
-    .hero {
-        min-height: 620px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 70px 7%;
-        gap: 55px;
-        background:
-            radial-gradient(circle at 80% 20%, rgba(198,161,91,0.18), transparent 35%),
-            linear-gradient(135deg, #f8f5ec, #e8f1ee, #fff);
-    }
-
-    .hero-text {
-        max-width: 600px;
-    }
-
-    .hero-label {
-        display: inline-block;
-        background: var(--emerald);
-        color: white;
-        padding: 9px 18px;
-        border-radius: 30px;
-        font-size: 13px;
-        letter-spacing: 1px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .hero-text h1 {
-        font-size: 53px;
-        line-height: 1.08;
-        color: var(--emerald);
-        margin-bottom: 18px;
-    }
-
-    .hero-text h2 {
-        font-size: 25px;
-        line-height: 1.4;
-        color: var(--gold);
-        margin-bottom: 20px;
-    }
-
-    .hero-text p {
-        font-size: 18px;
-        line-height: 1.75;
-        margin-bottom: 18px;
-        color: var(--text);
-    }
-
-    .hero-text strong {
-        color: var(--emerald);
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin-top: 28px;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 15px 27px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .btn-gold {
-        background: var(--gold);
-        color: white;
-        box-shadow: 0 6px 18px rgba(198,161,91,0.28);
-    }
-
-    .btn-gold:hover {
-        background: #a98646;
-        transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-        background: #25D366;
-        color: white;
-        box-shadow: 0 6px 18px rgba(37,211,102,0.2);
-    }
-
-    .btn-whatsapp:hover {
-        background: #1da851;
-        transform: translateY(-2px);
-    }
-
-    .hero-image {
-        width: 48%;
-        max-width: 650px;
-        border-radius: 28px;
-        border: 6px solid white;
-        box-shadow: 0 15px 45px rgba(15,61,54,0.18);
-    }
-
-    /* SERVICES */
-    .services {
-        text-align: center;
-        padding: 80px 7%;
-        background: white;
-    }
-
-    .section-label {
-        color: var(--gold);
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
-    }
-
-    .services h2,
-    .valuation h2 {
-        font-size: 38px;
-        color: var(--emerald);
-        margin-bottom: 15px;
-    }
-
-    .gold-line {
-        width: 70px;
-        height: 3px;
-        background: var(--gold);
-        margin: 0 auto 40px;
-    }
-
-    .service-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-        max-width: 1100px;
-        margin: auto;
-    }
-
-    .service-card {
-        background: var(--ivory);
-        padding: 40px 27px;
-        border-radius: 20px;
-        box-shadow: 0 7px 25px rgba(15,61,54,0.08);
-        border: 1px solid var(--gold-light);
-        transition: 0.3s;
-    }
-
-    .service-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 30px rgba(15,61,54,0.14);
-    }
-
-    .service-icon {
-        font-size: 45px;
-        margin-bottom: 18px;
-    }
-
-    .service-card h3 {
-        color: var(--emerald);
-        margin-bottom: 13px;
-        font-size: 22px;
-    }
-
-    .service-card p {
-        line-height: 1.65;
-        color: var(--text);
-    }
-
-    /* VALUATION */
-    .valuation {
-        text-align: center;
-        padding: 80px 7%;
-        background: var(--emerald-light);
-    }
-
-    .valuation-intro {
-        max-width: 760px;
-        margin: 0 auto 40px;
-        font-size: 18px;
-        line-height: 1.75;
-        color: var(--text);
-    }
-
-    .valuation-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-        max-width: 1100px;
-        margin: auto;
-    }
-
-    .valuation-card {
-        background: white;
-        padding: 38px 27px;
-        border-radius: 20px;
-        box-shadow: 0 7px 25px rgba(15,61,54,0.08);
-        border: 1px solid var(--gold-light);
-        transition: 0.3s;
-    }
-
-    .valuation-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .valuation-card .icon {
-        font-size: 42px;
-        margin-bottom: 17px;
-    }
-
-    .valuation-card h3 {
-        color: var(--emerald);
-        margin-bottom: 13px;
-        font-size: 21px;
-    }
-
-    .valuation-card p {
-        line-height: 1.65;
-        color: var(--text);
-    }
-
-    /* WHY CHOOSE US */
-    .why-us {
-        padding: 75px 7%;
-        background: var(--emerald);
-        color: white;
-        text-align: center;
-    }
-
-    .why-us h2 {
-        font-size: 36px;
-        margin-bottom: 15px;
-    }
-
-    .why-us .gold-line {
-        margin-bottom: 40px;
-    }
-
-    .why-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        max-width: 1050px;
-        margin: auto;
-    }
-
-    .why-card {
-        padding: 28px 20px;
-        border: 1px solid rgba(234,216,173,0.45);
-        border-radius: 18px;
-        background: rgba(255,255,255,0.05);
-    }
-
-    .why-card h3 {
-        color: var(--gold-light);
-        margin-bottom: 10px;
-    }
-
-    .why-card p {
-        color: #e7e7e7;
-        line-height: 1.6;
-    }
-
-    /* ENQUIRY */
-    .enquiry {
-        padding: 80px 20px;
-        text-align: center;
-        background:
-            radial-gradient(circle at 15% 30%, rgba(198,161,91,0.14), transparent 30%),
-            var(--ivory);
-    }
-
-    .enquiry-box {
-        max-width: 850px;
-        margin: auto;
-        padding: 50px 30px;
-        border-radius: 25px;
-        background: white;
-        border: 1px solid var(--gold-light);
-        box-shadow: 0 10px 35px rgba(15,61,54,0.10);
-    }
-
-    .enquiry-box h2 {
-        font-size: 36px;
-        color: var(--emerald);
-        margin-bottom: 15px;
-    }
-
-    .enquiry-box p {
-        max-width: 670px;
-        margin: 0 auto 28px;
-        font-size: 18px;
-        line-height: 1.75;
-        color: var(--text);
-    }
-
-    /* CONTACT */
-    .contact-info {
-        padding: 60px 20px;
-        text-align: center;
-        background: white;
-    }
-
-    .contact-info h2 {
-        color: var(--emerald);
-        margin-bottom: 15px;
-        font-size: 32px;
-    }
-
-    .contact-info p {
-        margin: 9px 0;
-        color: var(--text);
-        font-size: 17px;
-    }
-
-    .contact-info strong {
-        color: var(--gold);
-    }
-
-    /* FOOTER */
-    footer {
-        background: var(--emerald-dark);
-        color: white;
-        text-align: center;
-        padding: 38px 20px;
-    }
-
-    footer p {
-        margin: 8px 0;
-    }
-
-    footer strong {
-        color: var(--gold-light);
-    }
-
-    /* FLOATING WHATSAPP */
-    .floating-whatsapp {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        background: #25D366;
-        color: white;
-        width: 62px;
-        height: 62px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 29px;
-        text-decoration: none;
-        box-shadow: 0 6px 22px rgba(0,0,0,0.25);
-        z-index: 2000;
-        transition: 0.3s;
-    }
-
-    .floating-whatsapp:hover {
-        transform: scale(1.08);
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
+    <title>Your Choice Hub | Gold Valuation • Exclusive Jewellery • Luxury Watches</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
+
+        /* HEADER */
 
         header {
-            flex-direction: column;
-            gap: 14px;
-            padding: 13px 4%;
+            background: #111;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
         }
 
         .logo {
-            height: 58px;
+            height: 62px;
+            width: auto;
         }
 
         nav {
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         nav a {
-            font-size: 14px;
+            color: #f1dfb8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .appointment-btn {
-            padding: 10px 15px;
+        nav a:hover {
+            color: #d8b36a;
         }
+
+        .nav-button {
+            background: #d8b36a;
+            color: #111 !important;
+            padding: 11px 19px;
+            border-radius: 25px;
+        }
+
+        /* HERO */
 
         .hero {
-            flex-direction: column;
-            text-align: center;
-            padding: 50px 20px;
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+            padding: 65px 7%;
+            background:
+                linear-gradient(
+                    110deg,
+                    #111 0%,
+                    #1c1a17 50%,
+                    #f1eadc 50%,
+                    #f1eadc 100%
+                );
         }
 
-        .hero-text h1 {
-            font-size: 40px;
+        .hero-content {
+            width: 48%;
+            color: white;
         }
 
-        .hero-text h2 {
-            font-size: 21px;
+        .eyebrow {
+            color: #d8b36a;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            font-weight: bold;
         }
 
-        .hero-text p {
-            font-size: 16px;
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 57px;
+            line-height: 1.05;
+            color: #f1d28e;
+            margin-bottom: 20px;
         }
 
-        .hero-image {
-            width: 100%;
+        .hero h2 {
+            font-size: 23px;
+            line-height: 1.45;
+            font-weight: 400;
+            color: #f8f5ef;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #d7d1c6;
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 23px;
+        }
+
+        .appointment-note {
+            display: inline-block;
+            color: #111;
+            background: #d8b36a;
+            padding: 11px 19px;
+            border-radius: 25px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
         }
 
         .hero-buttons {
-            justify-content: center;
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 13px 20px;
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 28px;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        .services,
-        .valuation {
+        .btn-gold {
+            background: #d8b36a;
+            color: #111;
+        }
+
+        .btn-gold:hover {
+            background: #efd294;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .hero-photo {
+            width: 45%;
+            max-width: 560px;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.28);
+        }
+
+        /* SERVICES */
+
+        .services {
+            padding: 65px 7%;
+            background: #f7f3eb;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #a77b2e;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .services h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 38px;
+            color: #1b1a18;
+            margin-bottom: 38px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .service {
+            background: #fff;
+            border: 1px solid #e2d5bd;
+            padding: 34px 25px;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: 0.25s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            color: #9b7129;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            padding: 10px 7% 65px;
+            background: #f7f3eb;
+        }
+
+        .gallery-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 18px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery img:first-child {
+            height: 538px;
+        }
+
+        /* APPOINTMENT */
+
+        .appointment {
+            background: #171614;
+            color: white;
+            text-align: center;
             padding: 60px 20px;
         }
 
-        .services h2,
-        .valuation h2,
-        .why-us h2 {
-            font-size: 30px;
+        .appointment h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #e4c477;
+            font-size: 37px;
+            margin-bottom: 15px;
         }
 
-        .service-grid,
-        .valuation-grid,
-        .why-grid {
-            grid-template-columns: 1fr;
+        .appointment p {
+            color: #d5d0c6;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
-        .enquiry-box h2 {
-            font-size: 29px;
+        /* CONTACT */
+
+        .contact-info {
+            padding: 50px 7%;
+            background: #eee7d9;
+            text-align: center;
         }
+
+        .contact-info h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 33px;
+            margin-bottom: 25px;
+            color: #211f1b;
+        }
+
+        .contact-info p {
+            color: #555;
+            line-height: 1.8;
+            margin: 5px 0;
+        }
+
+        .contact-info strong {
+            color: #9b7129;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0e0e0d;
+            color: #aaa;
+            text-align: center;
+            padding: 27px 20px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #d8b36a;
+            font-size: 16px;
+        }
+
+        /* FLOATING WHATSAPP */
 
         .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
             width: 58px;
             height: 58px;
-            right: 15px;
-            bottom: 15px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 27px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
         }
-    }
-</style>
 
+        /* MOBILE */
 
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 14px;
+                padding: 14px 15px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column;
+                background: #111;
+                padding: 50px 20px;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                width: 100%;
+                height: 350px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img,
+            .gallery img:first-child {
+                height: 300px;
+            }
+
+            .services h2 {
+                font-size: 31px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
 <header>
 
+    <img src="{{ url_for('static', filename='images/logo.png') }}"
+         alt="Your Choice Hub"
+         class="logo">
 
-<img src="{{ url_for('static', filename='images/logo.png') }}"
-     alt="Your Choice Hub"
-     class="logo">
+    <nav>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-    <a href="/appointment" class="appointment-btn">Book Appointment</a>
-</nav>
+        <a href="/">Home</a>
 
+        <a href="/about">About</a>
+
+        <a href="/contact">Contact</a>
+
+        <a href="/appointment" class="nav-button">
+            Book Appointment
+        </a>
+
+    </nav>
 
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero">
 
+    <div class="hero-content">
 
-<div class="hero-text">
+        <div class="eyebrow">
+            Your Choice Hub
+        </div>
 
-    <span class="hero-label">EXCLUSIVE JEWELLERY & LUXURIOUS WATCHES</span>
+        <h1>
+            Timeless Gold.<br>
+            Modern Choices.
+        </h1>
 
-    <h1>Jewellery Evaluators</h1>
+        <h2>
+            Gold Valuation • Exclusive Jewellery • Luxury Watches
+        </h2>
 
-    <h2>Exclusive Jewellery • Jewellery Valuation • Luxurious Watches</h2>
+        <p>
+            Discover carefully selected modern jewellery pieces
+            and professional gold valuation assistance in a
+            private appointment-only setting.
+        </p>
 
-    <p>
-        Discover carefully selected jewellery and luxurious watches,
-        while receiving professional assistance for jewellery and
-        diamond valuation.
-    </p>
+        <div class="appointment-note">
+            ✦ VISITS BY APPOINTMENT ONLY
+        </div>
 
-    <p>
-        We focus on quality, careful assessment, confidentiality
-        and personalised service for every customer.
-    </p>
+        <div class="hero-buttons">
 
-    <p>
-        <strong>✨ Visits by appointment only.</strong>
-    </p>
+            <a href="/contact" class="btn btn-gold">
+                Make an Enquiry
+            </a>
 
-    <div class="hero-buttons">
+            <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub,%20I%20would%20like%20to%20make%20an%20enquiry."
+               class="btn btn-whatsapp"
+               target="_blank">
+                WhatsApp Us
+            </a>
 
-        <a href="/appointment" class="btn btn-gold">
-            Book an Appointment
-        </a>
-
-        <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20enquire%20about%20jewellery%2C%20diamonds%20or%20watches."
-           class="btn btn-whatsapp"
-           target="_blank"
-           rel="noopener">
-            💬 WhatsApp Enquiry
-        </a>
+        </div>
 
     </div>
 
-</div>
 
-<img src="{{ url_for('static', filename='pics/fashion.jpg') }}"
-     alt="Exclusive Jewellery and Luxurious Watches"
-     class="hero-image">
+    <!-- MAIN GOLD JEWELLERY PHOTO -->
 
+    <img src="{{ url_for('static', filename='pics/gold1.jpg') }}"
+         alt="Modern Gold Jewellery"
+         class="hero-photo">
 
 </section>
 
-<!-- PRODUCTS / SERVICES -->
+
+<!-- SERVICES -->
 
 <section class="services">
 
-
-<div class="section-label">YOUR CHOICE HUB</div>
-
-<h2>Exclusive Collection & Services</h2>
-
-<div class="gold-line"></div>
-
-<div class="service-grid">
-
-    <div class="service-card">
-        <div class="service-icon">💎</div>
-        <h3>Exclusive Jewellery</h3>
-        <p>
-            Discover elegant and distinctive jewellery pieces
-            selected for customers who appreciate quality,
-            beauty and timeless style.
-        </p>
+    <div class="section-label">
+        Our Specialities
     </div>
 
-    <div class="service-card">
-        <div class="service-icon">💠</div>
-        <h3>Diamond Valuation</h3>
-        <p>
-            Professional valuation assistance considering
-            important diamond characteristics such as carat,
-            colour, clarity and cut.
-        </p>
+    <h2>
+        What We Offer
+    </h2>
+
+    <div class="service-grid">
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Gold Valuation
+            </h3>
+
+            <p>
+                Professional gold valuation assistance with
+                careful attention to the quality and details
+                of your jewellery.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                ✨
+            </div>
+
+            <h3>
+                Exclusive Jewellery
+            </h3>
+
+            <p>
+                Discover modern, elegant and lightweight gold
+                jewellery pieces selected for contemporary style.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                ⌚
+            </div>
+
+            <h3>
+                Luxury Watches
+            </h3>
+
+            <p>
+                Explore a refined selection of luxury watches
+                available through our private appointment service.
+            </p>
+
+        </div>
+
     </div>
-
-    <div class="service-card">
-        <div class="service-icon">⌚</div>
-        <h3>Luxurious Watches</h3>
-        <p>
-            Explore a selection of luxurious watches chosen
-            for customers seeking elegance, sophistication
-            and timeless appeal.
-        </p>
-    </div>
-
-</div>
-
 
 </section>
 
-<!-- VALUATION -->
 
-<section class="valuation">
+<!-- GOLD JEWELLERY GALLERY -->
 
+<section class="gallery">
 
-<div class="section-label">PROFESSIONAL VALUATION</div>
+    <div class="gallery-grid">
 
-<h2>Jewellery & Diamond Valuation</h2>
+        <img src="{{ url_for('static', filename='pics/gold1.jpg') }}"
+             alt="Modern Gold Jewellery">
 
-<div class="gold-line"></div>
+        <img src="{{ url_for('static', filename='pics/gold2.jpg') }}"
+             alt="Lightweight Gold Jewellery">
 
-<p class="valuation-intro">
-    We provide careful and transparent valuation assistance
-    for jewellery and diamonds, helping customers understand
-    the characteristics and estimated value of their items.
-</p>
+        <img src="{{ url_for('static', filename='pics/gold3.jpg') }}"
+             alt="Exclusive Gold Jewellery">
 
-<div class="valuation-grid">
-
-    <div class="valuation-card">
-        <div class="icon">💎</div>
-        <h3>Diamond Valuation</h3>
-        <p>
-            Assessment of diamonds based on relevant factors
-            such as carat weight, colour, clarity, cut and
-            other identifying characteristics.
-        </p>
     </div>
-
-    <div class="valuation-card">
-        <div class="icon">💍</div>
-        <h3>Jewellery Valuation</h3>
-        <p>
-            Valuation assistance for gold and diamond jewellery,
-            including consideration of metal purity, weight,
-            stones and workmanship.
-        </p>
-    </div>
-
-    <div class="valuation-card">
-        <div class="icon">⚖️</div>
-        <h3>Independent Assessment</h3>
-        <p>
-            A professional assessment to help customers better
-            understand the characteristics and estimated value
-            of their jewellery and diamonds.
-        </p>
-    </div>
-
-</div>
-
 
 </section>
 
-<!-- WHY CHOOSE US -->
 
-<section class="why-us">
+<!-- APPOINTMENT -->
 
+<section class="appointment">
 
-<h2>Why Choose Your Choice Hub?</h2>
-
-<div class="gold-line"></div>
-
-<div class="why-grid">
-
-    <div class="why-card">
-        <h3>🔍 Careful Assessment</h3>
-        <p>
-            Attention to important details such as weight,
-            purity, characteristics and jewellery
-            specifications.
-        </p>
-    </div>
-
-    <div class="why-card">
-        <h3>🔒 Confidential</h3>
-        <p>
-            Your jewellery and valuation requirements are
-            handled with professionalism and discretion.
-        </p>
-    </div>
-
-    <div class="why-card">
-        <h3>🤝 Personal Service</h3>
-        <p>
-            Individual attention and an appointment-based
-            experience for every customer.
-        </p>
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- ENQUIRY -->
-
-<section class="enquiry">
-
-
-<div class="enquiry-box">
-
-    <h2>Looking for Jewellery or a Valuation?</h2>
+    <h2>
+        Private Visits by Appointment
+    </h2>
 
     <p>
-        Have a gold, silver item or jewellery piece that you
-        would like to have assessed? Looking for an exclusive
-        jewellery piece or luxurious watch? Contact us to
-        discuss your requirements and arrange an appointment.
+        For personalised assistance, jewellery enquiries
+        and gold valuation, please schedule your visit in advance.
     </p>
 
-    <a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20make%20an%20enquiry."
-       class="btn btn-whatsapp"
-       target="_blank"
-       rel="noopener">
-        💬 Make an Enquiry on WhatsApp
+    <a href="/appointment" class="btn btn-gold">
+        Book an Appointment
     </a>
 
-</div>
-
-
 </section>
+
 
 <!-- CONTACT -->
 
 <section class="contact-info">
 
-```
-<h2>Visit Your Choice Hub</h2>
+    <h2>
+        Visit or Enquire
+    </h2>
 
-<p>📍 <strong>Mumbai</strong><br>
-203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001</p>
+    <p>
+        <strong>Mumbai</strong><br>
+        203, Rustom Bldg, Veer Nariman Road,<br>
+        Fort, Mumbai 400001
+    </p>
 
-<br>
+    <br>
 
-<p>📍 <strong>Pune</strong><br>
-U73, Clover Hills Plaza Shopping Mall,<br>
-NIBM, Pune, 411048</p>
+    <p>
+        <strong>Pune</strong><br>
+        U73, Clover Hills Plaza Shopping Mall,<br>
+        NIBM, Pune – 411048
+    </p>
 
-<br>
+    <br>
 
-<p>📞 <strong>7977292916</strong></p>
+    <p>
+        📞 7977292916
+    </p>
 
-<p>✉️ <strong>mail@yourchoicehub.com</strong></p>
+    <p>
+        ✉️ mail@yourchoicehub.com
+    </p>
 
-<p>✉️ <strong>choicehub53@gmail.com</strong></p>
-
-<br>
-
-<p><strong>Visits by appointment only.</strong></p>
-```
+    <p>
+        ✉️ choicehub53@gmail.com
+    </p>
 
 </section>
+
 
 <!-- FOOTER -->
 
 <footer>
 
+    <p>
+        <strong>Your Choice Hub</strong>
+    </p>
 
-<p><strong>Your Choice Hub</strong></p>
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
-<p>Exclusive Jewellery • Diamond Valuation • Luxurious Watches</p>
+    <p>
+        Visits by Appointment Only
+    </p>
 
-<p>Professional • Confidential • Customer Focused</p>
-
-<p>© Your Choice Hub. All Rights Reserved.</p>
-```
+    <p>
+        © Your Choice Hub. All Rights Reserved.
+    </p>
 
 </footer>
 
+
 <!-- FLOATING WHATSAPP -->
 
-<a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub"
-class="floating-whatsapp"
-target="_blank"
-rel="noopener"
-title="WhatsApp Your Choice Hub">
-💬 </a>
+<a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub,%20I%20would%20like%20to%20make%20an%20enquiry."
+   class="floating-whatsapp"
+   target="_blank"
+   title="WhatsApp Your Choice Hub">
+
+    💬
+
+</a>
 
 </body>
 </html>
+
