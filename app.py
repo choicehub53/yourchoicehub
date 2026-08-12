@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect
+import os
+import resend
 
 app = Flask(__name__)
 
+resend.api_key = os.environ.get("RESEND_API_KEY")
 
 @app.route("/")
 def home():
