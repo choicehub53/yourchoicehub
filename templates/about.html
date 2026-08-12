@@ -1,853 +1,363 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>About Us | Your Choice Hub</title>
-
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    :root {
-        --emerald: #0f3d36;
-        --emerald-dark: #092c27;
-        --emerald-light: #e8f1ee;
-        --gold: #c6a15b;
-        --gold-light: #ead8ad;
-        --ivory: #fbf8f1;
-        --white: #ffffff;
-        --charcoal: #242424;
-        --text: #555555;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: var(--ivory);
-        color: var(--charcoal);
-    }
-
-    /* HEADER */
-
-    header {
-        background: rgba(255,255,255,0.98);
-        padding: 15px 6%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 3px 18px rgba(0,0,0,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo {
-        height: 65px;
-        width: auto;
-    }
-
-    nav {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: var(--emerald);
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--gold);
-    }
-
-    .appointment-btn {
-        background: var(--emerald);
-        color: white !important;
-        padding: 12px 21px;
-        border-radius: 25px;
-    }
-
-    .appointment-btn:hover {
-        background: var(--gold);
-    }
-
-    /* HERO */
-
-    .about-hero {
-        padding: 90px 7%;
-        text-align: center;
-        background:
-            radial-gradient(circle at 80% 20%, rgba(198,161,91,0.18), transparent 35%),
-            linear-gradient(135deg, #f8f5ec, #e8f1ee, #fff);
-    }
-
-    .about-label {
-        display: inline-block;
-        background: var(--emerald);
-        color: white;
-        padding: 9px 20px;
-        border-radius: 30px;
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        margin-bottom: 20px;
-    }
-
-    .about-hero h1 {
-        font-size: 50px;
-        color: var(--emerald);
-        margin-bottom: 18px;
-    }
-
-    .about-hero h2 {
-        color: var(--gold);
-        font-size: 25px;
-        font-weight: 600;
-        margin-bottom: 22px;
-    }
-
-    .about-hero p {
-        max-width: 800px;
-        margin: auto;
-        font-size: 18px;
-        line-height: 1.8;
-        color: var(--text);
-    }
-
-    /* MAIN ABOUT */
-
-    .about-section {
-        padding: 80px 7%;
-        background: white;
-    }
-
-    .content {
-        max-width: 1000px;
-        margin: auto;
-    }
-
-    .section-label {
-        color: var(--gold);
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
-    }
-
-    .about-section h2 {
-        color: var(--emerald);
-        font-size: 36px;
-        margin-bottom: 18px;
-    }
-
-    .gold-line {
-        width: 70px;
-        height: 3px;
-        background: var(--gold);
-        margin-bottom: 30px;
-    }
-
-    .about-section p {
-        font-size: 18px;
-        line-height: 1.85;
-        color: var(--text);
-        margin-bottom: 20px;
-    }
-
-    .about-section strong {
-        color: var(--emerald);
-    }
-
-    /* VALUATION */
-
-    .valuation-section {
-        padding: 80px 7%;
-        background: var(--emerald-light);
-    }
-
-    .valuation-content {
-        max-width: 1050px;
-        margin: auto;
-        text-align: center;
-    }
-
-    .valuation-content h2 {
-        font-size: 38px;
-        color: var(--emerald);
-        margin-bottom: 15px;
-    }
-
-    .valuation-intro {
-        max-width: 800px;
-        margin: 0 auto 45px;
-        font-size: 18px;
-        line-height: 1.8;
-        color: var(--text);
-    }
-
-    .valuation-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .valuation-card {
-        background: white;
-        padding: 35px 25px;
-        border-radius: 20px;
-        border: 1px solid var(--gold-light);
-        box-shadow: 0 7px 25px rgba(15,61,54,0.08);
-        transition: 0.3s;
-    }
-
-    .valuation-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .valuation-card .icon {
-        font-size: 40px;
-        margin-bottom: 15px;
-    }
-
-    .valuation-card h3 {
-        color: var(--emerald);
-        margin-bottom: 12px;
-        font-size: 21px;
-    }
-
-    .valuation-card p {
-        color: var(--text);
-        line-height: 1.65;
-    }
-
-    /* JEWELLERY */
-
-    .jewellery-section {
-        padding: 80px 7%;
-        background: white;
-    }
-
-    .jewellery-content {
-        max-width: 1050px;
-        margin: auto;
-    }
-
-    .jewellery-content h2 {
-        font-size: 36px;
-        color: var(--emerald);
-        margin-bottom: 18px;
-    }
-
-    .jewellery-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
-        margin-top: 35px;
-    }
-
-    .jewellery-card {
-        background: var(--ivory);
-        padding: 32px;
-        border-radius: 20px;
-        border: 1px solid var(--gold-light);
-    }
-
-    .jewellery-card h3 {
-        color: var(--gold);
-        margin-bottom: 12px;
-        font-size: 22px;
-    }
-
-    .jewellery-card p {
-        color: var(--text);
-        line-height: 1.7;
-    }
-
-    /* VALUES */
-
-    .values {
-        padding: 75px 7%;
-        background: var(--emerald);
-        color: white;
-        text-align: center;
-    }
-
-    .values h2 {
-        font-size: 36px;
-        margin-bottom: 15px;
-    }
-
-    .values .gold-line {
-        margin: 0 auto 40px;
-    }
-
-    .values-grid {
-        max-width: 1050px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .value-card {
-        padding: 30px 20px;
-        border: 1px solid rgba(234,216,173,0.45);
-        border-radius: 18px;
-        background: rgba(255,255,255,0.05);
-    }
-
-    .value-card h3 {
-        color: var(--gold-light);
-        margin-bottom: 12px;
-    }
-
-    .value-card p {
-        color: #e7e7e7;
-        line-height: 1.65;
-    }
-
-    /* CTA */
-
-    .cta {
-        padding: 75px 20px;
-        text-align: center;
-        background: var(--ivory);
-    }
-
-    .cta-box {
-        max-width: 850px;
-        margin: auto;
-        background: white;
-        padding: 50px 30px;
-        border-radius: 25px;
-        border: 1px solid var(--gold-light);
-        box-shadow: 0 10px 35px rgba(15,61,54,0.10);
-    }
-
-    .cta h2 {
-        color: var(--emerald);
-        font-size: 34px;
-        margin-bottom: 15px;
-    }
-
-    .cta p {
-        color: var(--text);
-        font-size: 18px;
-        line-height: 1.7;
-        margin-bottom: 28px;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 15px 28px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .btn-gold {
-        background: var(--gold);
-        color: white;
-    }
-
-    .btn-gold:hover {
-        background: #a98646;
-    }
-
-    /* CONTACT */
-
-    .contact-info {
-        padding: 60px 20px;
-        text-align: center;
-        background: white;
-    }
-
-    .contact-info h2 {
-        color: var(--emerald);
-        margin-bottom: 18px;
-        font-size: 32px;
-    }
-
-    .contact-info p {
-        margin: 8px 0;
-        color: var(--text);
-        font-size: 17px;
-    }
-
-    /* FOOTER */
-
-    footer {
-        background: var(--emerald-dark);
-        color: white;
-        text-align: center;
-        padding: 38px 20px;
-    }
-
-    footer p {
-        margin: 8px 0;
-    }
-
-    footer strong {
-        color: var(--gold-light);
-    }
-
-    /* WHATSAPP */
-
-    .floating-whatsapp {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        background: #25D366;
-        color: white;
-        width: 62px;
-        height: 62px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 29px;
-        text-decoration: none;
-        box-shadow: 0 6px 22px rgba(0,0,0,0.25);
-        z-index: 2000;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
+    <title>About Us | Your Choice Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
 
         header {
-            flex-direction: column;
-            gap: 14px;
-            padding: 13px 4%;
+            background: #111;
+            padding: 12px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
         }
 
         .logo {
-            height: 58px;
+            height: 65px;
+            width: auto;
+            display: block;
         }
 
         nav {
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         nav a {
-            font-size: 14px;
+            color: #f1dfb8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .appointment-btn {
-            padding: 10px 15px;
+        nav a:hover {
+            color: #d8b36a;
         }
 
-        .about-hero {
-            padding: 60px 20px;
+        .nav-button {
+            background: #d8b36a;
+            color: #111 !important;
+            padding: 11px 19px;
+            border-radius: 25px;
         }
 
-        .about-hero h1 {
-            font-size: 39px;
+        .page-hero {
+            background: #171614;
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
         }
 
-        .about-hero h2 {
-            font-size: 21px;
+        .page-hero p {
+            color: #d8b36a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .about-hero p,
-        .about-section p,
-        .valuation-intro,
-        .cta p {
+        .page-hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 52px;
+            color: #e4c477;
+        }
+
+        .content {
+            max-width: 1050px;
+            margin: auto;
+            padding: 65px 25px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .intro h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 36px;
+            color: #9b7129;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border: 1px solid #e2d5bd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #9b7129;
+            font-size: 23px;
+            margin-bottom: 14px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .appointment-box {
+            margin-top: 55px;
+            background: #171614;
+            color: white;
+            padding: 45px 25px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .appointment-box h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #e4c477;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .appointment-box p {
+            color: #d8d3c9;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d8b36a;
+            color: #111;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0e0e0d;
+            color: #aaa;
+            text-align: center;
+            padding: 27px 20px;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d8b36a;
             font-size: 16px;
         }
 
-        .about-section,
-        .valuation-section,
-        .jewellery-section {
-            padding: 60px 20px;
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                height: 58px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .page-hero h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
         }
-
-        .valuation-grid,
-        .jewellery-grid,
-        .values-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .values h2,
-        .valuation-content h2,
-        .about-section h2,
-        .jewellery-content h2 {
-            font-size: 30px;
-        }
-
-        .cta h2 {
-            font-size: 29px;
-        }
-
-        .floating-whatsapp {
-            width: 58px;
-            height: 58px;
-            right: 15px;
-            bottom: 15px;
-        }
-    }
-</style>
-
-
+    </style>
 </head>
 
 <body>
 
 <header>
 
+    <a href="/" class="logo-link">
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Your Choice Hub"
+            class="logo"
+        >
+    </a>
 
-<img src="{{ url_for('static', filename='images/logo.png') }}"
-     alt="Your Choice Hub"
-     class="logo">
-
-<nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-    <a href="/appointment" class="appointment-btn">Book Appointment</a>
-</nav>
-
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/appointment" class="nav-button">Book Appointment</a>
+    </nav>
 
 </header>
 
-<!-- ABOUT HERO -->
 
-<section class="about-hero">
+<section class="page-hero">
 
+    <p>Your Choice Hub</p>
 
-<span class="about-label">ABOUT YOUR CHOICE HUB</span>
-
-<h1>Where Jewellery Meets Expertise</h1>
-
-<h2>Valuation • Premium Jewellery • Luxurious Watches</h2>
-
-<p>
-    Your Choice Hub brings together professional jewellery 
-    valuation with a carefully selected range of premium
-    jewellery and luxurious watches.
-</p>
-
+    <h1>About Us</h1>
 
 </section>
 
-<!-- ABOUT US -->
 
-<section class="about-section">
+<main class="content">
 
+    <section class="intro">
 
-<div class="content">
+        <h2>Refined Choices. Personal Service.</h2>
 
-    <div class="section-label">OUR APPROACH</div>
+        <p>
+            Your Choice Hub is a private, appointment-based destination
+            offering professional gold valuation assistance, exclusive
+            jewellery pieces and luxury watches.
+        </p>
 
-    <h2>Professional Jewellery & Diamond Valuation</h2>
+        <br>
 
-    <div class="gold-line"></div>
+        <p>
+            We believe that every client deserves personal attention,
+            clear guidance and a comfortable environment when making
+            an important choice.
+        </p>
 
-    <p>
-        Jewellery is more than an ornament. It can represent
-        significant financial value, personal memories,
-        craftsmanship and individual style.
-    </p>
-
-    <p>
-        At <strong>Your Choice Hub</strong>, our valuation
-        approach focuses on carefully examining the important
-        characteristics of jewellery and diamonds to help
-        customers understand their items and their estimated
-        value.
-    </p>
-
-    <p>
-        Depending on the item, the assessment may consider
-        factors such as metal type and purity, weight,
-        gemstones, diamond characteristics, workmanship and
-        relevant market considerations.
-    </p>
-
-    <p>
-        We believe a valuation should be approached with
-        attention to detail, professionalism and confidentiality.
-        Every item deserves individual consideration rather than
-        a one-size-fits-all approach.
-    </p>
-
-</div>
+    </section>
 
 
-</section>
+    <section class="cards">
 
-<!-- VALUATION SERVICES -->
-
-<section class="valuation-section">
-
-
-<div class="valuation-content">
-
-    <div class="section-label">OUR VALUATION SERVICES</div>
-
-    <h2>Understanding the Value of Your Jewellery</h2>
-
-    <div class="gold-line"></div>
-
-    <p class="valuation-intro">
-        Our valuation services are designed to provide customers
-        with a clearer understanding of the characteristics and
-        estimated value of their jewellery.
-    </p>
-
-    <div class="valuation-grid">
-
-        <div class="valuation-card">
-
-            <div class="icon">💎</div>
-
-            <h3>Metal Valuation</h3>
-
-            <p>
-                Assessment of Metal characteristics including
-                weight, Purity, and other relevant 
-                identifying factors.
-            </p>
-
-        </div>
-
-
-        <div class="valuation-card">
-
-            <div class="icon">💍</div>
-
-            <h3>Gold Jewellery Valuation</h3>
-
-            <p>
-                Assessment of gold jewellery considering
-                metal purity, gross and net weight, gemstones,
-                workmanship and other relevant factors.
-            </p>
-
-        </div>
-
-
-        <div class="valuation-card">
+        <div class="card">
 
             <div class="icon">⚖️</div>
 
-            <h3>Jewellery Assessment</h3>
+            <h3>Gold Valuation</h3>
 
             <p>
-                A detailed assessment intended to help customers
-                understand the composition and estimated value
-                of their jewellery.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- PREMIUM JEWELLERY -->
-
-<section class="jewellery-section">
-
-
-<div class="jewellery-content">
-
-    <div class="section-label">OUR COLLECTION</div>
-
-    <h2>Premium Jewellery & Luxurious Watches</h2>
-
-    <div class="gold-line"></div>
-
-    <p>
-        Alongside our valuation services, Your Choice Hub offers
-        access to carefully selected premium jewellery and
-        luxurious watches for customers who appreciate
-        distinctive design, elegance and quality.
-    </p>
-
-    <div class="jewellery-grid">
-
-        <div class="jewellery-card">
-
-            <h3>✨ Premium Jewellery</h3>
-
-            <p>
-                Explore contemporary and elegant gold jewellery
-                selected for customers looking for distinctive
-                pieces suitable for everyday sophistication and
-                special occasions.
+                Professional assistance for gold valuation,
+                with attention to the details and characteristics
+                of your jewellery.
             </p>
 
         </div>
 
 
-        <div class="jewellery-card">
+        <div class="card">
 
-            <h3>⌚ Luxurious Watches</h3>
+            <div class="icon">✨</div>
+
+            <h3>Exclusive Jewellery</h3>
 
             <p>
-                Discover luxurious watches chosen for their
-                timeless appeal, craftsmanship and sophisticated
-                presence.
+                A carefully selected range of modern, elegant
+                and lightweight gold jewellery designed for
+                contemporary preferences.
             </p>
 
         </div>
 
-    </div>
 
-</div>
+        <div class="card">
 
+            <div class="icon">⌚</div>
 
-</section>
+            <h3>Luxury Watches</h3>
 
-<!-- OUR VALUES -->
+            <p>
+                Discover a refined selection of luxury watches
+                through our personalised appointment service.
+            </p>
 
-<section class="values">
+        </div>
 
-
-<h2>What We Stand For</h2>
-
-<div class="gold-line"></div>
-
-<div class="values-grid">
-
-    <div class="value-card">
-
-        <h3>🔍 Attention to Detail</h3>
-
-        <p>
-            We believe careful examination of every relevant
-            detail is essential when assessing jewellery and
-            diamonds.
-        </p>
-
-    </div>
+    </section>
 
 
-    <div class="value-card">
+    <section class="appointment-box">
 
-        <h3>🔒 Confidentiality</h3>
+        <h2>Visits by Appointment Only</h2>
 
         <p>
-            Customer privacy and discretion are important parts
-            of our appointment-based service.
+            We provide a private and personalised experience.
+            Please schedule your visit in advance so we can
+            give you our complete attention.
         </p>
 
-    </div>
+        <a href="/appointment" class="button">
+            Book an Appointment
+        </a>
 
+    </section>
 
-    <div class="value-card">
+</main>
 
-        <h3>🤝 Personal Service</h3>
-
-        <p>
-            We provide individual attention and take time to
-            understand each customer's requirements.
-        </p>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-
-<div class="cta-box">
-
-    <h2>Would You Like Your Jewellery Valued?</h2>
-
-    <p>
-        Contact Your Choice Hub to discuss your jewellery,
-        diamond or watch requirements and arrange a personal
-        appointment.
-    </p>
-
-    <a href="/appointment" class="btn btn-gold">
-        Book an Appointment
-    </a>
-
-</div>
-
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact-info">
-
-
-<h2>Visit Your Choice Hub</h2>
-
-<p>
-    📍 <strong>Mumbai</strong><br>
-    203, Rustom Bldg, Veer Nariman Road, Fort, Mumbai 400001
-</p>
-
-<br>
-
-<p>
-    📍 <strong>Pune</strong><br>
-    U73, Clover Hills Plaza Shopping Mall,<br>
-    NIBM, Pune, 411048
-</p>
-
-<br>
-
-<p>📞 <strong>7977292916</strong></p>
-
-<p>✉️ mail@yourchoicehub.com</p>
-
-<p>✉️ choicehub53@gmail.com</p>
-
-<p><strong>Visits by appointment only.</strong></p>
-```
-
-</section>
-
-<!-- FOOTER -->
 
 <footer>
 
-```
-<p><strong>Your Choice Hub</strong></p>
+    <p>
+        <strong>Your Choice Hub</strong>
+    </p>
 
-<p>Exclusive Jewellery • Diamond Valuation • Luxurious Watches</p>
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
-<p>Professional • Confidential • Customer Focused</p>
-
-<p>© Your Choice Hub. All Rights Reserved.</p>
-```
+    <p>
+        Visits by Appointment Only
+    </p>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-
-<a href="https://wa.me/917977292916?text=Hello%20Your%20Choice%20Hub%2C%20I%20would%20like%20to%20make%20an%20enquiry."
-class="floating-whatsapp"
-target="_blank"
-rel="noopener"
-title="WhatsApp Your Choice Hub">
-💬 </a>
-
 </body>
 </html>
-
