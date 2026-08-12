@@ -1,803 +1,400 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-```
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Contact Us | Your Choice Hub</title>
-
-<style>
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    :root {
-        --emerald: #0f3d36;
-        --emerald-dark: #092c27;
-        --emerald-light: #e8f1ee;
-        --gold: #c6a15b;
-        --gold-light: #ead8ad;
-        --ivory: #fbf8f1;
-        --white: #ffffff;
-        --text: #555555;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: var(--ivory);
-        color: #242424;
-    }
-
-
-    /* HEADER */
-
-    header {
-        background: rgba(255,255,255,0.98);
-        padding: 15px 6%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 3px 18px rgba(0,0,0,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo {
-        height: 65px;
-        width: auto;
-    }
-
-    nav {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: var(--emerald);
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--gold);
-    }
-
-    .appointment-btn {
-        background: var(--emerald);
-        color: white !important;
-        padding: 12px 21px;
-        border-radius: 25px;
-    }
-
-
-    /* HERO */
-
-    .contact-hero {
-        text-align: center;
-        padding: 80px 20px;
-
-        background:
-            radial-gradient(
-                circle at 80% 20%,
-                rgba(198,161,91,0.20),
-                transparent 35%
-            ),
-            linear-gradient(
-                135deg,
-                #f8f5ec,
-                #e8f1ee,
-                #ffffff
-            );
-    }
-
-    .hero-label {
-        display: inline-block;
-        background: var(--emerald);
-        color: white;
-        padding: 9px 20px;
-        border-radius: 30px;
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        margin-bottom: 18px;
-    }
-
-    .contact-hero h1 {
-        font-size: 48px;
-        color: var(--emerald);
-        margin-bottom: 18px;
-    }
-
-    .contact-hero h2 {
-        color: var(--gold);
-        font-size: 23px;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
-
-    .contact-hero p {
-        max-width: 750px;
-        margin: auto;
-        font-size: 18px;
-        line-height: 1.8;
-        color: var(--text);
-    }
-
-
-    /* MAIN CONTACT AREA */
-
-    .contact-section {
-        padding: 75px 6%;
-    }
-
-    .contact-container {
-        max-width: 1150px;
-        margin: auto;
-
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 35px;
-        align-items: start;
-    }
-
-
-    /* INFORMATION CARD */
-
-    .info-card {
-        background: var(--emerald);
-        color: white;
-        padding: 40px 35px;
-        border-radius: 25px;
-
-        box-shadow:
-            0 12px 35px rgba(15,61,54,0.18);
-    }
-
-    .info-card h2 {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-
-    .gold-line {
-        width: 65px;
-        height: 3px;
-        background: var(--gold);
-        margin-bottom: 30px;
-    }
-
-    .info-intro {
-        color: #e6e6e6;
-        line-height: 1.7;
-        margin-bottom: 30px;
-    }
-
-    .location {
-        padding: 20px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .location:last-of-type {
-        border-bottom: none;
-    }
-
-    .location h3 {
-        color: var(--gold-light);
-        margin-bottom: 8px;
-        font-size: 19px;
-    }
-
-    .location p {
-        color: #eeeeee;
-        line-height: 1.6;
-    }
-
-    .contact-detail {
-        margin-top: 25px;
-    }
-
-    .contact-detail p {
-        margin: 12px 0;
-        line-height: 1.5;
-    }
-
-    .contact-detail a {
-        color: var(--gold-light);
-        text-decoration: none;
-    }
-
-    .contact-detail a:hover {
-        color: white;
-    }
-
-
-    /* FORM CARD */
-
-    .form-card {
-        background: white;
-        padding: 42px;
-        border-radius: 25px;
-
-        border: 1px solid var(--gold-light);
-
-        box-shadow:
-            0 10px 35px rgba(15,61,54,0.10);
-    }
-
-    .form-card h2 {
-        color: var(--emerald);
-        font-size: 30px;
-        margin-bottom: 10px;
-    }
-
-    .form-description {
-        color: var(--text);
-        line-height: 1.7;
-        margin-bottom: 30px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        color: var(--emerald);
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    input,
-    textarea {
-        width: 100%;
-        padding: 14px 15px;
-
-        border: 1px solid #d7d7d7;
-        border-radius: 10px;
-
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-
-        background: #fff;
-    }
-
-    input:focus,
-    textarea:focus {
-        outline: none;
-        border-color: var(--gold);
-
-        box-shadow:
-            0 0 0 2px rgba(198,161,91,0.15);
-    }
-
-    textarea {
-        min-height: 150px;
-        resize: vertical;
-    }
-
-    .submit-btn {
-        width: 100%;
-        border: none;
-
-        padding: 16px;
-
-        border-radius: 30px;
-
-        background: var(--gold);
-        color: white;
-
-        font-size: 17px;
-        font-weight: bold;
-
-        cursor: pointer;
-
-        transition: 0.3s;
-    }
-
-    .submit-btn:hover {
-        background: #a98646;
-    }
-
-
-    /* WHATSAPP */
-
-    .whatsapp-box {
-        margin-top: 25px;
-        padding: 20px;
-
-        background: #f3faf6;
-        border-radius: 15px;
-
-        text-align: center;
-    }
-
-    .whatsapp-box p {
-        color: var(--text);
-        margin-bottom: 12px;
-    }
-
-    .whatsapp-btn {
-        display: inline-block;
-
-        background: #25D366;
-        color: white;
-
-        text-decoration: none;
-
-        padding: 12px 24px;
-
-        border-radius: 25px;
-
-        font-weight: bold;
-    }
-
-
-    /* APPOINTMENT CTA */
-
-    .appointment-section {
-        padding: 70px 20px;
-        text-align: center;
-
-        background: var(--emerald-light);
-    }
-
-    .appointment-section h2 {
-        color: var(--emerald);
-        font-size: 34px;
-        margin-bottom: 15px;
-    }
-
-    .appointment-section p {
-        color: var(--text);
-        font-size: 18px;
-        line-height: 1.7;
-        margin-bottom: 25px;
-    }
-
-    .appointment-link {
-        display: inline-block;
-
-        background: var(--gold);
-        color: white;
-
-        text-decoration: none;
-
-        padding: 14px 28px;
-
-        border-radius: 30px;
-
-        font-weight: bold;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        background: var(--emerald-dark);
-        color: white;
-        text-align: center;
-        padding: 38px 20px;
-    }
-
-    footer p {
-        margin: 8px 0;
-    }
-
-    footer strong {
-        color: var(--gold-light);
-    }
-
-
-    /* FLOATING WHATSAPP */
-
-    .floating-whatsapp {
-        position: fixed;
-
-        right: 20px;
-        bottom: 20px;
-
-        width: 62px;
-        height: 62px;
-
-        border-radius: 50%;
-
-        background: #25D366;
-        color: white;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 29px;
-
-        text-decoration: none;
-
-        box-shadow:
-            0 6px 22px rgba(0,0,0,0.25);
-
-        z-index: 2000;
-    }
-
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | Your Choice Hub</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
 
         header {
-            flex-direction: column;
-            gap: 14px;
-            padding: 13px 4%;
+            background: #111;
+            padding: 12px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            height: 58px;
+            height: 65px;
+            width: auto;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
         }
 
         nav {
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            gap: 25px;
+            align-items: center;
         }
 
         nav a {
-            font-size: 14px;
+            color: #f1dfb8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        .contact-hero {
-            padding: 60px 20px;
+        nav a:hover {
+            color: #d8b36a;
         }
 
-        .contact-hero h1 {
-            font-size: 39px;
+        .nav-button {
+            background: #d8b36a;
+            color: #111 !important;
+            padding: 11px 19px;
+            border-radius: 25px;
         }
 
-        .contact-hero h2 {
-            font-size: 20px;
+        .page-header {
+            background: #171614;
+            text-align: center;
+            color: white;
+            padding: 65px 20px;
         }
 
-        .contact-hero p {
+        .page-header h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #e4c477;
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #d5d0c6;
             font-size: 16px;
         }
 
         .contact-section {
-            padding: 50px 15px;
+            max-width: 1050px;
+            margin: auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
         }
 
-        .contact-container {
-            grid-template-columns: 1fr;
+        .contact-details {
+            background: #171614;
+            color: white;
+            padding: 35px;
+            border-radius: 8px;
         }
 
-        .info-card,
-        .form-card {
-            padding: 30px 22px;
+        .contact-details h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #e4c477;
+            font-size: 30px;
+            margin-bottom: 20px;
         }
 
-        .appointment-section h2 {
-            font-size: 29px;
+        .contact-details h3 {
+            color: #d8b36a;
+            margin-top: 22px;
+            margin-bottom: 7px;
         }
 
-        .floating-whatsapp {
-            width: 58px;
-            height: 58px;
-            right: 15px;
-            bottom: 15px;
+        .contact-details p {
+            color: #d4d0c7;
+            line-height: 1.7;
+            font-size: 14px;
         }
-    }
 
-</style>
-```
+        .form-box {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #e2d5bd;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .form-box h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #9b7129;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .form-box p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d6c9b2;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            background: #d8b36a;
+            color: #111;
+            padding: 14px 28px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #c69d4d;
+        }
+
+        footer {
+            background: #0e0e0d;
+            color: #aaa;
+            text-align: center;
+            padding: 27px 20px;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d8b36a;
+            font-size: 16px;
+        }
+
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                height: 58px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body>
 
-<!-- HEADER -->
+<body>
 
 <header>
 
-```
-<img
-    src="{{ url_for('static', filename='images/logo.png') }}"
-    alt="Your Choice Hub Logo"
-    class="logo"
->
+    <a href="/" class="logo-link">
 
-<nav>
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Your Choice Hub"
+            class="logo"
+        >
 
-    <a href="/">Home</a>
-
-    <a href="/about">About</a>
-
-    <a href="/contact">Contact</a>
-
-    <a href="/appointment" class="appointment-btn">
-        Book Appointment
     </a>
 
-</nav>
-```
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/about">About</a>
+
+        <a href="/contact">Contact</a>
+
+        <a href="/appointment" class="nav-button">
+            Book Appointment
+        </a>
+
+    </nav>
 
 </header>
 
-<!-- HERO -->
 
-<section class="contact-hero">
+<section class="page-header">
 
-```
-<span class="hero-label">
-    YOUR CHOICE HUB
-</span>
+    <h1>Get in Touch</h1>
 
-<h1>Contact Us</h1>
-
-<h2>Jewellery • Valuation • Luxurious Watches</h2>
-
-<p>
-    Whether you are looking for premium jewellery,
-    jewellery valuation or luxurious watches,
-    we would be happy to assist you.
-    Send us your enquiry and our team will get back to you.
-</p>
-```
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
 </section>
 
-<!-- CONTACT AREA -->
 
 <section class="contact-section">
 
-```
-<div class="contact-container">
 
+    <div class="contact-details">
 
-    <!-- INFORMATION -->
+        <h2>Visit or Enquire</h2>
 
-    <div class="info-card">
+        <p>
+            For enquiries regarding gold valuation,
+            exclusive jewellery or luxury watches,
+            please contact us.
+        </p>
 
-        <h2>Get in Touch</h2>
+        <h3>Mumbai</h3>
 
-        <div class="gold-line"></div>
-
-        <p class="info-intro">
-            Your Choice Hub offers personalised assistance
-            for jewellery, valuation requirements and
-            luxurious watches.
+        <p>
+            203, Rustom Bldg,<br>
+            Veer Nariman Road,<br>
+            Fort, Mumbai 400001
         </p>
 
 
-        <div class="location">
+        <h3>Pune</h3>
 
-            <h3>📍 Mumbai</h3>
-
-            <p>
-                203, Rustom Bldg,<br>
-                Veer Nariman Road,<br>
-                Fort, Mumbai 400001
-            </p>
-
-        </div>
+        <p>
+            U73, Clover Hills Plaza Shopping Mall,<br>
+            NIBM, Pune – 411048
+        </p>
 
 
-        <div class="location">
+        <h3>Phone</h3>
 
-            <h3>📍 Pune</h3>
-
-            <p>
-                U73, Clover Hills Plaza Shopping Mall,<br>
-                NIBM, Pune, 411048
-            </p>
-
-        </div>
+        <p>
+            7977292916
+        </p>
 
 
-        <div class="contact-detail">
+        <h3>Email</h3>
 
-            <p>
-                📞
-                <strong>7977292916</strong>
-            </p>
-
-            <p>
-                ✉️
-                <a href="mailto:mail@yourchoicehub.com">
-                    mail@yourchoicehub.com
-                </a>
-            </p>
-
-            <p>
-                ✉️
-                <a href="mailto:choicehub53@gmail.com">
-                    choicehub53@gmail.com
-                </a>
-            </p>
-
-            <p>
-                🕊️
-                <strong>Visits by appointment only</strong>
-            </p>
-
-        </div>
+        <p>
+            mail@yourchoicehub.com<br>
+            choicehub53@gmail.com
+        </p>
 
 
-        <div class="whatsapp-box">
+        <h3>Appointments</h3>
 
-            <p>
-                Prefer WhatsApp?
-            </p>
-
-            <a
-                href="https://wa.me/917977292916"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="whatsapp-btn"
-            >
-                💬 WhatsApp Us
-            </a>
-
-        </div>
+        <p>
+            Visits by Appointment Only.
+        </p>
 
     </div>
 
 
-    <!-- FORM -->
-
-    <div class="form-card">
+    <div class="form-box">
 
         <h2>Send an Enquiry</h2>
 
-        <p class="form-description">
-            Have a question about our jewellery,
-            valuation services or watches?
-            Send us a message and we will get in touch.
+        <p>
+            Please complete the form below and we will
+            get back to you shortly.
         </p>
 
 
-        <!-- EXISTING EMAIL FORM — KEEPING SAME BACKEND -->
-
-        <form
-            method="POST"
-            action="{{ url_for('contact') }}"
-        >
-
-            <div class="form-group">
-
-                <label for="name">
-                    Name
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                >
-
-            </div>
+        <form method="POST" action="{{ url_for('contact') }}">
 
 
-            <div class="form-group">
+            <label for="name">
+                Name
+            </label>
 
-                <label for="email">
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email address"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="message">
-                    Message
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    placeholder="How can we assist you?"
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="submit-btn"
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
             >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
+
+
+            <label for="message">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="How may we assist you?"
+                required
+            ></textarea>
+
+
+            <button type="submit">
                 Send Enquiry
             </button>
 
         </form>
 
-
     </div>
 
-</div>
-```
-
 </section>
 
-<!-- APPOINTMENT CTA -->
-
-<section class="appointment-section">
-
-```
-<h2>Prefer a Personal Consultation?</h2>
-
-<p>
-    Book an appointment for personalised assistance
-    with your jewellery, valuation or watch requirements.
-</p>
-
-<a
-    href="/appointment"
-    class="appointment-link"
->
-    Book an Appointment
-</a>
-```
-
-</section>
-
-<!-- FOOTER -->
 
 <footer>
 
-```
-<p>
-    <strong>Your Choice Hub</strong>
-</p>
+    <p>
+        <strong>Your Choice Hub</strong>
+    </p>
 
-<p>
-    Exclusive Jewellery • Jewellery Valuation • Luxurious Watches
-</p>
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
 
-<p>
-    Professional • Confidential • Customer Focused
-</p>
-
-<p>
-    © Your Choice Hub. All Rights Reserved.
-</p>
-```
+    <p>
+        Visits by Appointment Only
+    </p>
 
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-
-<a
-href="https://wa.me/917977292916"
-class="floating-whatsapp"
-target="_blank"
-rel="noopener noreferrer"
-title="WhatsApp Your Choice Hub"
-
->
-
-```
-💬
-```
-
-</a>
-
 </body>
-
 </html>
