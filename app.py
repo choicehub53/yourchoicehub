@@ -24,7 +24,29 @@ def appointment():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        return redirect("/thank-you")
+        name = request.form.get("name", "")
+        email = request.form.get("email", "")
+        message = request.form.get("message", "")
+
+        try:
+            resend.Emails.send({
+                "from": "Your Choice Hub <onboarding@resend.dev>",
+                "to": ["choicehub53@gmail.com"],
+                "subject": "New Enquiry - Your Choice Hub",
+                "html": (
+                    "<h2>New Enquiry - Your Choice Hub</h2>"
+                    "<p><strong>Name:</strong> " + name + "</p>"
+                    "<p><strong>Email:</strong> " + email + "</p>"
+                    "<p><strong>Message:</strong></p>"
+                    "<p>" + message + "</p>"
+                )
+            })
+
+            return redirect("/thank-you")
+
+        except Exception as e:
+            print("CONTACT EMAIL ERROR:", e)
+            return "Unable to send enquiry. Please try again."
 
     return render_template("contact.html")
 
