@@ -1,14 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Thank You</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You | Your Choice Hub</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3eb;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            padding: 12px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #f1dfb8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d8b36a;
+        }
+
+        .nav-button {
+            background: #d8b36a;
+            color: #111 !important;
+            padding: 11px 19px;
+            border-radius: 25px;
+        }
+
+        .thank-you {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .thank-box {
+            background: white;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            padding: 55px 30px;
+            border-radius: 8px;
+            border: 1px solid #e2d5bd;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .check {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .thank-box h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #9b7129;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .thank-box p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .appointment-note {
+            margin: 25px 0;
+            background: #f3ead8;
+            padding: 15px;
+            color: #8a6427;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 12px;
+            background: #d8b36a;
+            color: #111;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0e0e0d;
+            color: #aaa;
+            text-align: center;
+            padding: 27px 20px;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d8b36a;
+            font-size: 16px;
+        }
+
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                height: 58px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .thank-box h1 {
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<main>
-    <h1>Thank You!</h1>
-    <p>Your message has been sent successfully. We'll get back to you shortly.</p>
-</main>
+
+<header>
+
+    <a href="/" class="logo-link">
+
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Your Choice Hub"
+            class="logo"
+        >
+
+    </a>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/about">About</a>
+
+        <a href="/contact">Contact</a>
+
+        <a href="/appointment" class="nav-button">
+            Book Appointment
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="thank-you">
+
+    <div class="thank-box">
+
+        <div class="check">
+            ✓
+        </div>
+
+        <h1>
+            Thank You
+        </h1>
+
+        <p>
+            Thank you for contacting
+            <strong>Your Choice Hub</strong>.
+        </p>
+
+        <p>
+            Your enquiry has been received successfully.
+            We will get back to you shortly.
+        </p>
+
+        <div class="appointment-note">
+            Visits by Appointment Only
+        </div>
+
+        <a href="/" class="button">
+            Return to Home
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        <strong>Your Choice Hub</strong>
+    </p>
+
+    <p>
+        Gold Valuation • Exclusive Jewellery • Luxury Watches
+    </p>
+
+    <p>
+        Visits by Appointment Only
+    </p>
+
+</footer>
+
 </body>
 </html>
